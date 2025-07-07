@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tales of Bloomrise</title>
     <link rel="stylesheet" href="style.css" />
+
   </head>
   <body>
     <div class="parallax-bg"></div>
@@ -12,7 +13,7 @@
     <div class="content">
       <header>
         <div class="blur-layer"></div>
-        <img src="logo.png" alt="Tales of Bloomrise Logo" class="logo" />
+        <img src="img/logo.png" alt="Tales of Bloomrise Logo" class="logo" />
         <p>
           Explore dungeons, proteja sua vila e viva uma aventura em pixel art
         </p>
@@ -24,11 +25,25 @@
           Pré-registre-se na Google Play
         </a>
       </header>
-
-      <nav>
+      <div id="nav-bur-mobile" class="nav-blur-layer"></div>
+      <button id="menu-toggle" class="menu-button">☰</button>
+      <nav class="side-nav">
         <a href="#sobre">Sobre</a>
         <a href="#trailer">Trailer</a>
         <a href="#comunidade">Comunidade</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#personagens">Personagens</a>
+        <a href="#devlog">Devlog</a>
+      </nav>
+      <div id="overlay"></div>
+
+      <nav id="main-nav">
+        <div id="nav-bur" class="nav-blur-layer"></div>
+        <a href="#sobre">Sobre</a>
+        <a href="#trailer">Trailer</a>
+        <a href="#comunidade">Comunidade</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#personagens">Personagens</a>
         <a href="#devlog">Devlog</a>
       </nav>
 
@@ -67,6 +82,20 @@
         <a href="https://discord.gg/" target="_blank" class="button"
           >Entrar no Discord</a
         >
+      </section>
+
+      <section id="galeria" class="section">
+        <h2>Galeria de Fotos</h2>
+        <div class="gallery">
+          <!-- fotos -->
+        </div>
+      </section>
+
+      <section id="personagens" class="section">
+        <h2>Personagens</h2>
+        <div class="characters">
+          <!-- personagens -->
+        </div>
       </section>
 
       <section id="devlog" class="section">

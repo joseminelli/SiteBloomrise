@@ -1,3 +1,4 @@
+/* ------------------ Fonts & Base ------------------ */
 @import url('https://fonts.googleapis.com/css2?family=Lexend&family=Montserrat:wght@400;700&display=swap');
 
 @font-face {
@@ -18,29 +19,33 @@ body {
     line-height: 1.6;
     position: relative;
     overflow-x: hidden;
+    background-color: #1d1d2d;
 }
 
+/*  ----------------- Trailer ------------------- */
+
+.trailer iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    border-radius: 12px;
+}
+
+/* ------------------ Parallax ------------------ */
 .parallax-bg {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 200%;
-    background: url('bg.png') center top no-repeat;
+    background: url('img/bg.png') center top no-repeat;
     background-size: cover;
     z-index: -1;
     pointer-events: none;
     transition: transform 0.05s ease-out;
 }
 
-.content {
-    position: relative;
-    z-index: 1;
-    /* backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px); */
-    background-color: rgba(30, 30, 47, 0.4);
-}
-
+/* ------------------ Header ------------------ */
 header {
     position: relative;
     padding: 100px 20px 120px;
@@ -65,6 +70,15 @@ header>*:not(.blur-layer) {
     z-index: 1;
 }
 
+.logo {
+    display: block;
+    margin: 0 auto;
+    width: 500px;
+    max-width: 90%;
+    height: auto;
+    padding: 2em 0;
+}
+
 header h1 {
     font-family: 'Big Apple', sans-serif;
     font-size: 3em;
@@ -76,34 +90,166 @@ header p {
     color: #ccc;
 }
 
+/* ------------------ Navegação (Desktop) ------------------ */
 nav {
-    text-align: center;
-    margin: 20px 0;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    padding: 15px 0;
+    background: transparent;
+    transition: background 0.3s ease;
 }
 
+.nav-blur-layer {
+    position: absolute;
+    inset: 0;
+    background: rgba(29, 29, 45, 0.5);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    -webkit-backdrop-filter: blur(10px);
+    mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+    z-index: 0;
+    transition: all 0.2s ease;
+}
+
+/* Efeito quando fixado */
+.nav-blur-layer.fixed-nav {
+    opacity: 1;
+}
+
+/* Links continuam iguais */
 nav a {
-    margin: 0 10px;
+    margin: 0 5px;
     color: #6df;
+    background: rgba(29, 29, 45, 0.55);
     text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+    z-index: 2;
 }
 
-.logo {
-    display: block;
-    margin: 0 auto;
-    width: 500px; /* ou o tamanho desejado */
-    height: auto;
-    padding: 2em 0; /* se quiser, mantenha padding vertical */
+nav a:hover,
+nav a:focus {
+    background-color: #6df;
+    color: #000;
+    outline: none;
 }
 
 
-.blur-overlay {
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+/* ------------------ Botão e Menu Mobile ------------------ */
+#nav-bur-mobile,
+.menu-button,
+.side-nav,
+#overlay {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    /* ------------------ Sobre ------------------ */
+
+    #sobre {
+        margin-inline: 20px;
+    }
+
+    #nav-bur-mobile {
+        display: block;
+        position: fixed;
+        top: 0;
+        opacity: 1 !important;
+        left: 0;
+        width: 100%;
+        height: 15%;
+        background: rgba(29, 29, 45, 0.5);
+        backdrop-filter: blur(10px);
+        z-index: 100;
+    }
+
+    .menu-button {
+        display: block;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        font-size: 2rem;
+        z-index: 100;
+        background: rgba(29, 29, 45, 0.8);
+        color: #6df;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        backdrop-filter: blur(6px);
+    }
+
+    .side-nav {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 220px;
+        height: 100%;
+        background: rgba(29, 29, 45, 0.95);
+        backdrop-filter: blur(10px);
+        padding-top: 80px;
+        padding-left: 20px;
+        gap: 15px;
+        z-index: 90;
+        transition: left 0.3s ease;
+    }
+
+    .side-nav a {
+        color: #6df;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 1.1em;
+        transition: color 0.2s;
+    }
+
+    .side-nav a:hover {
+        color: #fff;
+    }
+
+    .side-nav.open {
+        left: 0;
+    }
+
+    #overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 80;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    #overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    nav {
+        display: none;
+    }
+}
+
+/* ------------------ Conteúdo Principal ------------------ */
+.content {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(30, 30, 47, 0.5);
 }
 
 .section {
-    max-width: 900px;
-    margin: 40px auto;
+    max-width: 1000px;
+    margin: 30px auto;
     padding: 0 20px;
 }
 
@@ -117,27 +263,74 @@ nav a {
     font-weight: bold;
 }
 
-.trailer iframe {
-    width: 100%;
-    height: 400px;
-    border: none;
-    border-radius: 12px;
+/* ------------------ Galeria ------------------ */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
 }
 
+.gallery img {
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(109, 223, 255, 0.5);
+}
+
+/* ------------------ Personagens ------------------ */
+.characters {
+    display: flex;
+    max-height: 450px;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.character-card {
+    background: rgba(29, 29, 45, 0.6);
+    border-radius: 12px;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+}
+
+.character-card img {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    /* para alguns navegadores */
+    width: 192px;
+    /* 48px * 4x aumento, por exemplo */
+    height: auto;
+    /* mantém proporção */
+}
+
+
+
+/* ------------------ Devlog com Scroll ------------------ */
+#devlog-container {
+    max-height: 350px;
+    overflow-y: auto;
+    padding-right: 8px;
+    scroll-behavior: smooth;
+}
+
+#sobre,
 .devlog-entry {
     background-color: rgba(29, 29, 45, 0.5);
     border-radius: 12px;
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-}
-
-.devlog-entry,
-header {
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-
+/* ------------------ Tipografia ------------------ */
 .devlog-entry h3,
 section h2 {
     letter-spacing: 2px;
@@ -151,6 +344,7 @@ footer {
     font-family: 'Lexend', 'Montserrat', sans-serif;
 }
 
+/* ------------------ Rodapé ------------------ */
 footer {
     text-align: center;
     padding: 20px;
@@ -158,10 +352,32 @@ footer {
     color: #888;
 }
 
-
-/* Ajuste somente para telas maiores (desktop) */
+/* ---------------- scrollbar ------------------ */
+/* Scroll personalizado para desktop */
 @media (min-width: 768px) {
+
     .parallax-bg {
         background-position: center -600px;
     }
+
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgba(22, 22, 37, 0.5);
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #6df, #38a5ff);
+        border-radius: 10px;
+        border: 2px solid rgba(22, 22, 37, 0.7);
+        transition: background 0.3s ease;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #89e0ff, #00cfff);
+    }
+
 }
