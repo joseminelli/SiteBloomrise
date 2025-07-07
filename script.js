@@ -4,21 +4,15 @@ const showTrailer = false;
 // ==== Trailer Section (opcional) ====
 if (!showTrailer) {
   const trailerSection = document.getElementById("trailer");
-  if (trailerSection) {
-    trailerSection.remove();
-  }
+  if (trailerSection) trailerSection.remove();
 
   const trailerNavLink = document.querySelector('#main-nav a[href="#trailer"]');
-  if (trailerNavLink) {
-    trailerNavLink.remove();
-  }
+  if (trailerNavLink) trailerNavLink.remove();
 
   const trailerSideNavLink = document.querySelector(
     '.side-nav a[href="#trailer"]'
   );
-  if (trailerSideNavLink) {
-    trailerSideNavLink.remove();
-  }
+  if (trailerSideNavLink) trailerSideNavLink.remove();
 }
 
 // ==== Dados do Devlog ====
@@ -55,10 +49,16 @@ const galleryData = [
 ];
 
 const galleryContainer = document.querySelector(".gallery");
-galleryData.forEach((src) => {
+
+// Criar as imagens e já adicionar evento para abrir modal
+galleryData.forEach((src, i) => {
   const img = document.createElement("img");
   img.src = `img/galeria/${src}`;
   img.alt = "Imagem da galeria";
+  img.style.cursor = "pointer";
+
+  img.addEventListener("click", () => openModal(i));
+
   galleryContainer.appendChild(img);
 });
 
@@ -144,7 +144,22 @@ let targetY = 0;
 let currentY = 0;
 
 window.addEventListener("scroll", () => {
-  targetY = window.scrollY * -0.4;
+  const scrollY = window.scrollY;
+  const windowHeight = window.innerHeight;
+  const docHeight = document.documentElement.scrollHeight;
+  const bgHeight = bg.clientHeight;
+
+  // Máximo scroll que o usuário pode fazer
+  const maxScroll = docHeight - windowHeight;
+
+  // Máximo deslocamento do bg para cima (valor negativo)
+  const maxTranslateY = windowHeight - bgHeight;
+
+  // Proporção do scroll atual em relação ao máximo scroll
+  const scrollPercent = scrollY / maxScroll;
+
+  // Calcula o targetY limitando proporcionalmente ao scrollPercent
+  targetY = Math.max(maxTranslateY * scrollPercent, maxTranslateY);
 });
 
 function animate() {
@@ -152,7 +167,6 @@ function animate() {
   bg.style.transform = `translateY(${currentY}px)`;
   requestAnimationFrame(animate);
 }
-
 animate();
 
 // ==== Menu lateral (mobile) ====
@@ -170,20 +184,26 @@ overlay.addEventListener("click", () => {
   overlay.classList.remove("active");
 });
 
-// ==== nav background color change on scroll ====
-
-const nav = document.getElementById("main-nav");
+// ==== Nav background change on scroll ====
 const nav_bur = document.getElementById("nav-bur");
-const navOffset = nav.offsetTop;
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY >= navOffset) {
-    nav_bur.classList.add("fixed-nav");
-  } else {
-    nav_bur.classList.remove("fixed-nav");
-  }
+window.addEventListener("load", () => {
+  const triggerPoint = nav_bur.getBoundingClientRect().top + window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY >= triggerPoint) {
+      nav_bur.classList.add("fixed-nav");
+    } else {
+      nav_bur.classList.remove("fixed-nav");
+    }
+  });
 });
 
+
+
+
+// ==== Máscaras de scroll ====
+// (função para dar efeito fade nas bordas do scroll)
 function updateMaskClasses(container) {
   if (container.scrollTop > 10) {
     container.classList.add("mask-top");
@@ -208,6 +228,102 @@ charactersContainer.addEventListener("scroll", () =>
   updateMaskClasses(charactersContainer)
 );
 
-// Chama no carregamento para atualizar máscara se estiver rolado
+// Atualiza máscaras na carga inicial
 updateMaskClasses(devlogContainer);
 updateMaskClasses(charactersContainer);
+
+// ==== Modal da galeria ====
+const modal = document.getElementById("image-modal");
+const modalImg = document.getElementById("modal-img");
+const modalClose = document.getElementById("modal-close");
+const modalPrev = document.getElementById("modal-prev");
+const modalNext = document.getElementById("modal-next");
+
+// Variáveis para controle
+let currentIndex = -1;
+let zoomed = false;
+
+// Função abrir modal com índice da imagem
+function openModal(index) {
+  currentIndex = index;
+  modalImg.src = galleryData[currentIndex]
+    ? `img/galeria/${galleryData[currentIndex]}`
+    : "";
+  modalImg.alt = `Imagem da galeria ${currentIndex + 1}`;
+  modal.classList.add("show");
+  modal.setAttribute("aria-hidden", "false");
+  zoomed = false;
+  modalImg.classList.remove("zoomed");
+  updateNavButtons();
+  modal.focus();
+}
+
+// Fechar modal
+function closeModal() {
+  modal.classList.remove("show");
+  modal.setAttribute("aria-hidden", "true");
+  zoomed = false;
+  modalImg.classList.remove("zoomed");
+}
+
+// Atualizar botões de navegação (desabilitar se no início ou fim)
+function updateNavButtons() {
+  modalPrev.classList.toggle("disabled", currentIndex <= 0);
+  modalNext.classList.toggle(
+    "disabled",
+    currentIndex >= galleryData.length - 1
+  );
+}
+
+// Mostrar próxima imagem
+function showNext() {
+  if (currentIndex < galleryData.length - 1) {
+    openModal(currentIndex + 1);
+  }
+}
+
+// Mostrar imagem anterior
+function showPrev() {
+  if (currentIndex > 0) {
+    openModal(currentIndex - 1);
+  }
+}
+
+// Eventos do modal
+modalClose.addEventListener("click", closeModal);
+modalNext.addEventListener("click", showNext);
+modalPrev.addEventListener("click", showPrev);
+
+// Fechar clicando fora da imagem (fundo escuro)
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) closeModal();
+});
+
+// Zoom com duplo clique
+modalImg.addEventListener("dblclick", () => {
+  zoomed = !zoomed;
+  modalImg.classList.toggle("zoomed", zoomed);
+});
+
+// Navegação com teclado: ESC para fechar, setas para navegar, espaço/enter para zoom
+window.addEventListener("keydown", (e) => {
+  if (!modal.classList.contains("show")) return;
+
+  switch (e.key) {
+    case "Escape":
+      closeModal();
+      break;
+    case "ArrowRight":
+      showNext();
+      break;
+    case "ArrowLeft":
+      showPrev();
+      break;
+    case " ":
+    case "Enter":
+      zoomed = !zoomed;
+      modalImg.classList.toggle("zoomed", zoomed);
+      e.preventDefault();
+      break;
+  }
+});

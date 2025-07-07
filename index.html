@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tales of Bloomrise</title>
     <link rel="stylesheet" href="style.css" />
-
   </head>
   <body>
     <div class="parallax-bg"></div>
@@ -106,6 +105,30 @@
       <footer>
         <p>© 2025 Minelli. Todos os direitos reservados.</p>
       </footer>
+    </div>
+    <!-- Modal com preview, setas e zoom -->
+    <div
+      id="image-modal"
+      class="image-modal"
+      tabindex="0"
+      aria-hidden="true"
+      role="dialog"
+      aria-label="Preview da imagem da galeria"
+    >
+      <span
+        id="modal-close"
+        class="modal-close"
+        role="button"
+        aria-label="Fechar modal"
+        >&times;</span
+      >
+      <button id="modal-prev" class="modal-nav" aria-label="Imagem anterior">
+        &#10094;
+      </button>
+      <img class="modal-content" id="modal-img" alt="Preview da imagem" />
+      <button id="modal-next" class="modal-nav" aria-label="Próxima imagem">
+        &#10095;
+      </button>
     </div>
   </body>
   <script src="script.js"></script>

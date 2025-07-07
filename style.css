@@ -320,12 +320,117 @@ nav a:focus {
 }
 
 #sobre,
+#galeria,
 .devlog-entry {
     background-color: rgba(29, 29, 45, 0.5);
     border-radius: 12px;
     backdrop-filter: blur(8px);
     padding: 20px;
     margin-bottom: 15px;
+}
+
+/* ------------------ Image Modal -------------*/
+/* Modal - fundo escuro e centralização */
+.image-modal {
+    display: none;
+    visibility: hidden;
+    pointer-events: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    will-change: opacity;
+}
+
+/* Mostrar com fade */
+.image-modal.show {
+    display: flex;
+    /* ou block */
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
+}
+
+/* Conteúdo da imagem com animação zoom */
+.image-modal .modal-content {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(109, 223, 255, 0.9);
+    cursor: zoom-in;
+    transition: transform 0.4s ease;
+    will-change: transform;
+    user-select: none;
+}
+
+/* Quando zoom ativado */
+.image-modal .modal-content.zoomed {
+    cursor: zoom-out;
+    transform: scale(2);
+}
+
+/* Botão fechar */
+.modal-close {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    color: #6df;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s ease;
+    z-index: 10000;
+}
+
+.modal-close:hover {
+    color: #89e0ff;
+}
+
+/* Botões de navegação */
+.modal-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6df;
+    background: rgba(29, 29, 45, 0.8);
+    border: none;
+    font-size: 3rem;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    z-index: 10000;
+    outline: none;
+    box-shadow: 0 0 10px #6df;
+}
+
+.modal-nav:hover {
+    background-color: #6df;
+    color: #000;
+}
+
+#modal-prev {
+    left: 20px;
+}
+
+#modal-next {
+    right: 20px;
+}
+
+/* Esconder botão quando não tiver próxima/imagem */
+.modal-nav.disabled {
+    opacity: 0.3;
+    pointer-events: none;
 }
 
 /* ------------------ Mácaras ------------------ */
@@ -379,10 +484,16 @@ footer {
 
 /* ---------------- scrollbar ------------------ */
 /* Scroll personalizado para desktop */
-@media (min-width: 768px) {
+@media (min-width: 1285p) {
 
     .parallax-bg {
         background-position: center -600px;
+    }
+}
+@media (min-width: 768px) {
+
+    .parallax-bg {
+        background-position: center -400px;
     }
 
     ::-webkit-scrollbar {
