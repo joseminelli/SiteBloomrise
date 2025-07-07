@@ -18,6 +18,12 @@ if (!showTrailer) {
 // ==== Dados do Devlog ====
 const devlogData = [
   {
+    date: "2025-07-07",
+    title: "Novas Lojas e Correções de Rotinas",
+    content:
+      "Foram adicionadas lojas interativas no ferreiro, no bar local e nas máquinas de refrigerante, permitindo compras diretas de armas, bebidas e itens rápidos. Além disso, corrigimos um bug que impedia certos NPCs de executarem suas rotinas completas ao entrarem e saírem de interiores.",
+  },
+  {
     date: "2025-07-01",
     title: "Criação de Interiores",
     content:
@@ -240,7 +246,7 @@ const charactersData = [
   {
     name: "Selene Hawke",
     image: "selene.png",
-    description: "Dona do bar local, casada com Marcus.",
+    description: "Grande ouvinte de todos da vila, casada com Marcus.",
   },
   {
     name: "Marcus Hawke",
