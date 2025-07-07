@@ -16,16 +16,20 @@
         <p>
           Explore dungeons, proteja sua vila e viva uma aventura em pixel art
         </p>
-        <a
-          href="https://play.google.com/store/apps/details?id=com.minelli.talesofbloomrise"
-          class="button"
-          target="_blank"
-        >
-          Pré-registre-se na Google Play
-        </a>
+        <div class="centered-button">
+          <a
+            href="https://play.google.com/store/apps/details?id=com.minelli.talesofbloomrise"
+            target="_blank"
+            class="hud-button-big"
+          >
+            <span>Pré-registre-se na Google Play</span>
+          </a>
+        </div>
       </header>
       <div id="nav-bur-mobile" class="nav-blur-layer"></div>
-      <button id="menu-toggle" class="menu-button">☰</button>
+      <button id="menu-toggle" class="menu-button">
+        <img src="img/hud/btn_menu.png" alt="Abrir menu" />
+      </button>
       <nav class="side-nav">
         <a href="#sobre">Sobre</a>
         <a href="#trailer">Trailer</a>
@@ -38,12 +42,12 @@
 
       <nav id="main-nav">
         <div id="nav-bur" class="nav-blur-layer"></div>
-        <a href="#sobre">Sobre</a>
-        <a href="#trailer">Trailer</a>
-        <a href="#comunidade">Comunidade</a>
-        <a href="#galeria">Galeria</a>
-        <a href="#personagens">Personagens</a>
-        <a href="#devlog">Devlog</a>
+        <a class="hud-button-small" href="#sobre">Sobre</a>
+        <a class="hud-button-small" href="#trailer">Trailer</a>
+        <a class="hud-button-small" href="#comunidade">Comunidade</a>
+        <a class="hud-button-small" href="#galeria">Galeria</a>
+        <a class="hud-button-small" href="#personagens">Personagens</a>
+        <a class="hud-button-small" href="#devlog">Devlog</a>
       </nav>
 
       <section id="sobre" class="section">
@@ -78,9 +82,9 @@
           Entre no nosso Discord para acompanhar o desenvolvimento, dar feedback
           e conhecer outros jogadores!
         </p>
-        <a href="https://discord.gg/" target="_blank" class="button"
-          >Entrar no Discord</a
-        >
+        <a href="https://discord.gg/4QSxuG7RK7" target="_blank" class="hud-button-mid">
+          <span>Nosso discord!</span>
+        </a>
       </section>
 
       <section id="galeria" class="section">
@@ -115,19 +119,31 @@
       role="dialog"
       aria-label="Preview da imagem da galeria"
     >
-      <span
+      <button
         id="modal-close"
         class="modal-close"
         role="button"
         aria-label="Fechar modal"
-        >&times;</span
       >
-      <button id="modal-prev" class="modal-nav" aria-label="Imagem anterior">
-        &#10094;
+        <img src="img/hud/btn_close.png" alt="Anterior" class="arrow-icon" />
       </button>
+
+      <button id="modal-prev" class="modal-nav" aria-label="Imagem anterior">
+        <img
+          src="img/hud/btn_arrow_left.png"
+          alt="Anterior"
+          class="arrow-icon"
+        />
+      </button>
+
       <img class="modal-content" id="modal-img" alt="Preview da imagem" />
+
       <button id="modal-next" class="modal-nav" aria-label="Próxima imagem">
-        &#10095;
+        <img
+          src="img/hud/btn_arrow_right.png"
+          alt="Próxima"
+          class="arrow-icon"
+        />
       </button>
     </div>
   </body>

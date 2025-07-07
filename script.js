@@ -18,24 +18,167 @@ if (!showTrailer) {
 // ==== Dados do Devlog ====
 const devlogData = [
   {
-    date: "2025-07-07",
-    title: "Início do Site Oficial",
+    date: "2025-07-01",
+    title: "Criação de Interiores",
     content:
-      "Publicamos a primeira versão do site oficial com trailer, links e devlog modular.",
+      "Foram adicionados interiores como casas, lojas e outros ambientes internos, expandindo a exploração e profundidade do mundo.",
   },
   {
-    date: "2025-07-05",
-    title: "NPCs agora abrem portas corretamente",
+    date: "2025-06-25",
+    title: "Novo inimigo: Zumbi",
     content:
-      "Corrigimos um bug em que NPCs ficavam presos ao tentar interagir com portas.",
+      "Zumbis surgem à noite nas áreas externas das dungeons, adicionando mais perigo e desafio.",
+  },
+  {
+    date: "2025-06-20",
+    title: "Melhoria da IA dos NPCs",
+    content:
+      "Os NPCs agora possuem rotinas diárias mais complexas, como trabalhar, descansar e interagir entre si.",
+  },
+  {
+    date: "2025-06-18",
+    title: "Sistema de Clima e Ciclo Dia-Noite",
+    content:
+      "Implementamos um sistema de clima dinâmico com ciclos de dia e noite, afetando a visibilidade e comportamento dos NPCs.",
+  },
+  {
+    date: "2025-06-10",
+    title: "Bug fixes e Melhorias de Performance",
+    content:
+      "Correção de bugs críticos e otimizações de performance para melhorar a fluidez do jogo.",
+  },
+  {
+    date: "2025-07-06",
+    title: "NPCs agora acessam interiores",
+    content:
+      "As rotinas dos NPCs foram aprimoradas para incluir interações com o ambiente interno da vila, como casas e lojas.",
+  },
+  {
+    date: "2025-06-15",
+    title: "Adição de Missões",
+    content:
+      "O sistema de quests foi introduzido com missões de coleta e combate, como derrotar inimigos específicos.",
+  },
+  {
+    date: "2025-06-08",
+    title: "Diálogos e Tutorial Básico",
+    content:
+      "Agora o jogo conta com diálogos interativos e um tutorial inicial para orientar novos jogadores.",
+  },
+  {
+    date: "2025-05-28",
+    title: "Nova loja do NPC J. Minelli",
+    content:
+      "O comerciante J. Minelli agora tem uma loja funcional onde o jogador pode comprar ou vender itens.",
+  },
+  {
+    date: "2025-05-20",
+    title: "NPCs adicionados (versão inicial)",
+    content:
+      "Primeiros NPCs foram inseridos com visual e nomes definidos, ainda sem rotinas complexas.",
+  },
+  {
+    date: "2025-05-08",
+    title: "Novo Inventário e Sistema de Itens",
+    content:
+      "O sistema de inventário foi reformulado, com suporte a itens utilizáveis, empilhamento e atalhos rápidos.",
+  },
+  {
+    date: "2025-04-30",
+    title: "Melhoria do Mapa e Novos Pontos de Interesse",
+    content:
+      "Adicionamos áreas como lagos, ruínas e trilhas para tornar a exploração mais variada e imersiva.",
+  },
+  {
+    date: "2025-04-15",
+    title: "Melhoria da Vegetação",
+    content:
+      "As árvores, gramas e arbustos receberam novos sprites e distribuição mais natural.",
+  },
+  {
+    date: "2025-04-05",
+    title: "Novos inimigos: Slimes e Orcs",
+    content:
+      "Os primeiros inimigos do jogo foram adicionados com IA básica e animações.",
+  },
+  {
+    date: "2025-03-25",
+    title: "Adição das Ferramentas",
+    content:
+      "Itens como picareta, machado e arco agora estão disponíveis para coleta e uso básico.",
+  },
+  {
+    date: "2025-03-18",
+    title: "Sistema de Combate Inicial",
+    content:
+      "Adicionamos o combate com toque para selecionar inimigos e atacar com timing.",
+  },
+  {
+    date: "2025-03-10",
+    title: "Primeira versão do Mapa",
+    content:
+      "Criamos o layout inicial da vila de Bloomrise e das áreas ao redor para testes de movimentação e ambientação.",
   },
 ];
 
+const TAG_MAP = [
+  {
+    tag: "Combate",
+    icon: "🧟",
+    keywords: ["inimigo", "inimigos", "slime", "orc", "monstros"],
+  },
+  { tag: "Missão", icon: "📜", keywords: ["missão", "missões", "quest"] },
+  {
+    tag: "Mundo",
+    icon: "🏠",
+    keywords: ["interior", "interiores", "casa"],
+  },
+  {
+    tag: "História",
+    icon: "💬",
+    keywords: ["diálogo", "dialogo", "história", "historia", "tutorial"],
+  },
+  { tag: "Personagem", icon: "🧑", keywords: ["npc", "loja", "personagem"] },
+  {
+    tag: "Sistema",
+    icon: "⚙️",
+    keywords: ["sistema", "inventário", "combate", "IA", "rotina"],
+  },
+  {
+    tag: "Bug",
+    icon: "🐛",
+    keywords: ["bug", "erro", "problema", "falha"],
+  },
+];
+
+function getTagAndIcon(title) {
+  const lowerTitle = title.toLowerCase();
+
+  for (const item of TAG_MAP) {
+    if (item.keywords.some((keyword) => lowerTitle.includes(keyword))) {
+      return { tag: item.tag, icon: item.icon };
+    }
+  }
+
+  return { tag: "Geral", icon: "🌿" };
+}
+
 const devlogContainer = document.getElementById("devlog-container");
+
+devlogData.sort((a, b) => new Date(b.date) - new Date(a.date));
+
 devlogData.forEach((entry) => {
   const div = document.createElement("div");
   div.className = "devlog-entry";
-  div.innerHTML = `<h3>${entry.title}</h3><small>${entry.date}</small><p>${entry.content}</p>`;
+  const { tag, icon } = getTagAndIcon(entry.title);
+
+  div.innerHTML = `
+      <span class="devlog-tag tag-${tag.toLowerCase()}">${tag}</span>
+      <h3>${icon} ${entry.title}</h3>
+      <small>${entry.date}</small>
+      <p>${entry.content}</p>
+    `;
+
   devlogContainer.appendChild(div);
 });
 
@@ -127,15 +270,19 @@ const charactersData = [
 ];
 
 const charactersContainer = document.querySelector(".characters");
-charactersData.forEach((char) => {
-  const article = document.createElement("article");
-  article.className = "character-card";
-  article.innerHTML = `
-      <img src="img/personagens/${char.image}" alt="${char.name} - tales of bloomrise" />
-      <h3>${char.name}</h3>
-      <p>${char.description}</p>
-    `;
-  charactersContainer.appendChild(article);
+window.addEventListener("load", () => {
+  charactersData.forEach((char) => {
+    const article = document.createElement("article");
+    article.className = "character-card";
+    article.innerHTML = `
+          <img src="img/personagens/${char.image}" alt="${char.name} - tales of bloomrise" />
+          <h3>${char.name}</h3>
+          <p>${char.description}</p>
+        `;
+    charactersContainer.appendChild(article);
+  });
+
+  updateMaskClasses(charactersContainer); // se quiser aplicar fade também
 });
 
 // ==== Parallax suave ====
@@ -198,9 +345,6 @@ window.addEventListener("load", () => {
     }
   });
 });
-
-
-
 
 // ==== Máscaras de scroll ====
 // (função para dar efeito fade nas bordas do scroll)
