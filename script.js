@@ -47,16 +47,17 @@ devlogData.forEach((entry) => {
 
 // ==== Dados da Galeria ====
 const galleryData = [
-  "foto1.jpg",
-  "foto2.jpg",
-  "foto3.jpg",
+  "print1.webp",
+  "print2.webp",
+  "print3.webp",
+  "print4.webp",
   // Adicione mais imagens conforme necessário
 ];
 
 const galleryContainer = document.querySelector(".gallery");
 galleryData.forEach((src) => {
   const img = document.createElement("img");
-  img.src = src;
+  img.src = `img/galeria/${src}`;
   img.alt = "Imagem da galeria";
   galleryContainer.appendChild(img);
 });
@@ -182,3 +183,31 @@ window.addEventListener("scroll", () => {
     nav_bur.classList.remove("fixed-nav");
   }
 });
+
+function updateMaskClasses(container) {
+  if (container.scrollTop > 10) {
+    container.classList.add("mask-top");
+  } else {
+    container.classList.remove("mask-top");
+  }
+
+  if (
+    container.scrollTop + container.clientHeight + 10 <
+    container.scrollHeight
+  ) {
+    container.classList.add("mask-bottom");
+  } else {
+    container.classList.remove("mask-bottom");
+  }
+}
+
+devlogContainer.addEventListener("scroll", () =>
+  updateMaskClasses(devlogContainer)
+);
+charactersContainer.addEventListener("scroll", () =>
+  updateMaskClasses(charactersContainer)
+);
+
+// Chama no carregamento para atualizar máscara se estiver rolado
+updateMaskClasses(devlogContainer);
+updateMaskClasses(charactersContainer);
