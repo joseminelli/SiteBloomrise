@@ -18,6 +18,12 @@ if (!showTrailer) {
 // ==== Dados do Devlog ====
 const devlogData = [
   {
+    date: "2025-07-10",
+    title: "Primeira versão dos interiores!",
+    content:
+      "Adicionamos a primeira versão dos interiores, permitindo que os NPCs interajam com as casas e lojas da vila. Agora é possível entrar e sair de ambientes internos, aumentando a imersão do jogo.",
+  },
+  {
     date: "2025-07-07",
     title: "Novas Lojas e Correções de Rotinas",
     content:
