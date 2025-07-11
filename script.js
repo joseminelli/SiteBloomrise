@@ -195,12 +195,19 @@ devlogData.forEach((entry) => {
   div.className = "devlog-entry";
   const { tag, icon } = getTagAndIcon(entry.title);
 
+  // Converte a data para o formato brasileiro
+  const formattedDate = new Date(entry.date).toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+
   div.innerHTML = `
-      <span class="devlog-tag tag-${tag.toLowerCase()}">${tag}</span>
-      <h3>${icon} ${entry.title}</h3>
-      <small>${entry.date}</small>
-      <p>${entry.content}</p>
-    `;
+    <span class="devlog-tag tag-${tag.toLowerCase()}">${tag}</span>
+    <h3>${icon} ${entry.title}</h3>
+    <small>${formattedDate}</small>
+    <p>${entry.content}</p>
+  `;
 
   devlogContainer.appendChild(div);
 });
@@ -368,7 +375,6 @@ function changeMenuIcon() {
     }, 200);
   }, 200);
 }
-
 
 overlay.addEventListener("click", () => {
   sideNav.classList.toggle("open");
