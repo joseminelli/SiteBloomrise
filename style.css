@@ -391,6 +391,12 @@ nav a:focus {
     color: #9e8a31!important;
 }
 
+.tag-dungeon {
+    background-color: #d6c7f2!important;
+    /* roxo pastel claro */
+    color: #6f4a9e!important;
+}
+
 
 #devlog,
 #personagens,
@@ -546,6 +552,22 @@ nav a:focus {
     mask-image: none;
 }
 
+.metric span{
+    font-size: 1.5em;
+}
+
+.metric{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    color: #fff;
+}
+
 
 /* ------------------ Tipografia ------------------ */
 .devlog-entry h3,
@@ -553,6 +575,12 @@ section h2 {
     letter-spacing: 2px;
     font-weight: 500;
     font-family: 'Big Apple', sans-serif;
+}
+
+.bigApple{
+    font-family: 'Big Apple', sans-serif !important;
+    letter-spacing: 2px;
+    font-weight: normal !important;
 }
 
 nav a,
@@ -614,6 +642,13 @@ footer {
     width: 100%;
 }
 
+.collum {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
 .hud-button-small,
 .hud-button-mid,
 .hud-button-big,
@@ -658,6 +693,11 @@ footer {
 }
 
 @media (min-width: 768px) {
+
+    header {
+        padding: 50px 20px 0;
+        margin-bottom: 40px;
+    }
 
     .parallax-bg {
         background-position: center -400px;

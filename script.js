@@ -18,6 +18,11 @@ if (!showTrailer) {
 // ==== Dados do Devlog ====
 const devlogData = [
   {
+    date: "2025-07-11",
+    title: "Dungeon adicionada!",
+    content:
+      "Adicionamos a dungeon no jogo, onde os jogadores podem enfrentar inimigos como zumbis e slimes. A dungeon inclui um layout variado com recompensas ao derrotar todos os monstros!",},
+  {
     date: "2025-07-10",
     title: "Primeira versão dos interiores!",
     content:
@@ -161,6 +166,11 @@ const TAG_MAP = [
     icon: "🐛",
     keywords: ["bug", "erro", "problema", "falha"],
   },
+  {
+    tag: "Dungeon",
+    icon: "🏰",
+    keywords: ["dungeon", "masmorra", "caverna", "labirinto"],
+  }
 ];
 
 function getTagAndIcon(title) {
