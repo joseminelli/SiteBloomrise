@@ -150,12 +150,22 @@ nav a:focus {
     display: none;
 }
 
+@media (max-width: 550px) {
+    .character-card {
+        width: 300px !important;
+    }
+}
+
 @media (max-width: 768px) {
     /* ------------------ Sobre ------------------ */
 
     .modal-nav {
         top: 75% !important;
         transform: translateY(-75%) !important;
+    }
+
+    p {
+        font-size: 1.2em;
     }
 
     #sobre {
@@ -180,13 +190,30 @@ nav a:focus {
         position: fixed;
         top: 20px;
         left: 20px;
-        font-size: 2rem;
+        src: url("img/hud/btn_menu.png");
         z-index: 100;
         background-color: transparent;
         border: none;
+        user-select: none;
         border-radius: 6px;
         cursor: pointer;
-        backdrop-filter: blur(6px);
+    }
+
+    #menu-toggle-img {
+        transition: transform 0.2s ease, opacity 0.2s ease;
+        transform: scale(1);
+        opacity: 1;
+        transform-origin: center;
+    }
+
+    .shrinking {
+        transform: scale(0) !important;
+        opacity: 0 !important;
+    }
+
+    .growing {
+        transform: scale(1) !important;
+        opacity: 1 !important;
     }
 
     .side-nav {
@@ -194,32 +221,53 @@ nav a:focus {
         flex-direction: column;
         position: fixed;
         top: 0;
-        left: -250px;
-        width: 220px;
+        left: 0;
+        width: 260px;
         height: 100%;
-        background: rgba(29, 29, 45, 0.95);
+        background: linear-gradient(135deg, rgba(131, 131, 131, 0.642) 00%, transparent 90%);
         backdrop-filter: blur(10px);
-        padding-top: 80px;
         padding-left: 20px;
         gap: 15px;
         z-index: 90;
-        transition: left 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0);
+        transform: translateX(-100%);
+        opacity: 0;
+        transition: transform 0.4s cubic-bezier(0.32, 1, 0.36, 1.2), opacity 0.3s ease, box-shadow 0.4s ease;
+
     }
 
+    .side-nav.open {
+        transform: translateX(-7%);
+        opacity: 1;
+        box-shadow: 4px 0 12px rgba(0, 0, 0, 0.3);
+    }
+
+
     .side-nav a {
+        margin-left: 20px;
+        background-color: rgba(131, 131, 131, 0.23);
+        padding: 10px 15px;
+        margin-right: 20px;
+        text-align: center;
+        width: 70%;
         color: rgb(255, 255, 255);
-        font-weight: bold;
+        font-family: 'Big Apple', sans-serif !important;
+        letter-spacing: 2px;
+        font-weight: normal !important;
         text-decoration: none;
-        font-size: 1.1em;
-        transition: color 0.2s;
+        transform: scale(1);
+        font-size: 1.3em;
+        transition: all 0.2s;
+    }
+
+    .side-nav a:hover {
+        outline: none;
+        background-color: rgba(131, 131, 131, 0.63);
+        transform: scale(1.05);
     }
 
     .side-nav a:hover {
         color: #fff;
-    }
-
-    .side-nav.open {
-        left: 0;
     }
 
     #overlay {
@@ -319,6 +367,26 @@ nav a:focus {
     z-index: 1;
 }
 
+.character-card h3 {
+    font-family: 'Big Apple', sans-serif;
+    font-size: 1.5em;
+    margin: 10px 0;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.character-card h3,
+.devlog-entry h3 {
+    background-color: rgb(173 173 173 / 50%);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.devlog-entry h3 {
+    width: fit-content !important;
+}
+
 
 /* ------------------ Devlog com Scroll ------------------ */
 #devlog-container {
@@ -346,55 +414,55 @@ nav a:focus {
 .tag-mundo {
     background-color: #f2c7c7 !important;
     /* rosa pastel claro */
-    color: #9e4a4a!important;
+    color: #9e4a4a !important;
 }
 
 .tag-combate {
     background-color: #c7f2c7 !important;
     /* verde pastel claro */
-    color: #4a9e4a!important;
+    color: #4a9e4a !important;
 }
 
 .tag-missão {
     background-color: #dcefc7 !important;
     /* verde pastel claro */
-    color: #4a6f35!important;
+    color: #4a6f35 !important;
 }
 
 .tag-história {
-    background-color: #c7d7f2!important;
+    background-color: #c7d7f2 !important;
     /* azul pastel claro */
-    color: #315a9e!important;
+    color: #315a9e !important;
 }
 
 .tag-personagem {
-    background-color: #f2c7f2!important;
+    background-color: #f2c7f2 !important;
     /* rosa pastel claro */
-    color: #9e4a9e!important;
+    color: #9e4a9e !important;
 }
 
 .tag-sistema {
-    background-color: #c7d7ef!important;
+    background-color: #c7d7ef !important;
     /* azul pastel claro */
-    color: #315a9e!important;
+    color: #315a9e !important;
 }
 
 .tag-bug {
-    background-color: #f2d6d6!important;
+    background-color: #f2d6d6 !important;
     /* vermelho pastel claro */
-    color: #9e4a4a!important;
+    color: #9e4a4a !important;
 }
 
 .tag-atualizacao {
-    background-color: #f9ebc7!important;
+    background-color: #f9ebc7 !important;
     /* amarelo pastel claro */
-    color: #9e8a31!important;
+    color: #9e8a31 !important;
 }
 
 .tag-dungeon {
-    background-color: #d6c7f2!important;
+    background-color: #d6c7f2 !important;
     /* roxo pastel claro */
-    color: #6f4a9e!important;
+    color: #6f4a9e !important;
 }
 
 
@@ -552,11 +620,11 @@ nav a:focus {
     mask-image: none;
 }
 
-.metric span{
+.metric span {
     font-size: 1.5em;
 }
 
-.metric{
+.metric {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -577,7 +645,7 @@ section h2 {
     font-family: 'Big Apple', sans-serif;
 }
 
-.bigApple{
+.bigApple {
     font-family: 'Big Apple', sans-serif !important;
     letter-spacing: 2px;
     font-weight: normal !important;
@@ -594,8 +662,14 @@ footer {
 footer {
     text-align: center;
     padding: 20px;
-    background: #161625;
-    color: #888;
+    color: #ffffff;
+    inset: 0;
+    background: rgba(29, 29, 45, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    mask-image: linear-gradient(to top, black 20%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, black 20%, transparent 100%);
+    z-index: 0;
 }
 
 /* ---------------- Pixel art Buttons */
@@ -693,6 +767,7 @@ footer {
 }
 
 @media (min-width: 768px) {
+
 
     header {
         padding: 50px 20px 0;

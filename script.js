@@ -21,7 +21,8 @@ const devlogData = [
     date: "2025-07-11",
     title: "Dungeon adicionada!",
     content:
-      "Adicionamos a dungeon no jogo, onde os jogadores podem enfrentar inimigos como zumbis e slimes. A dungeon inclui um layout variado com recompensas ao derrotar todos os monstros!",},
+      "Adicionamos a dungeon no jogo, onde os jogadores podem enfrentar inimigos como zumbis e slimes. A dungeon inclui um layout variado com recompensas ao derrotar todos os monstros!",
+  },
   {
     date: "2025-07-10",
     title: "Primeira versão dos interiores!",
@@ -170,7 +171,7 @@ const TAG_MAP = [
     tag: "Dungeon",
     icon: "🏰",
     keywords: ["dungeon", "masmorra", "caverna", "labirinto"],
-  }
+  },
 ];
 
 function getTagAndIcon(title) {
@@ -340,17 +341,40 @@ animate();
 
 // ==== Menu lateral (mobile) ====
 const menuToggle = document.getElementById("menu-toggle");
+const menuToggleImg = document.getElementById("menu-toggle-img");
 const sideNav = document.querySelector(".side-nav");
 const overlay = document.getElementById("overlay");
 
 menuToggle.addEventListener("click", () => {
   sideNav.classList.toggle("open");
+  menuToggle.classList.toggle("active");
+  changeMenuIcon();
   overlay.classList.toggle("active");
 });
 
+function changeMenuIcon() {
+  menuToggleImg.classList.add("shrinking");
+
+  setTimeout(() => {
+    menuToggleImg.src = sideNav.classList.contains("open")
+      ? "img/hud/voltarBtn.png"
+      : "img/hud/btn_menu.png";
+
+    menuToggleImg.classList.remove("shrinking");
+    menuToggleImg.classList.add("growing");
+
+    setTimeout(() => {
+      menuToggleImg.classList.remove("growing");
+    }, 200);
+  }, 200);
+}
+
+
 overlay.addEventListener("click", () => {
-  sideNav.classList.remove("open");
-  overlay.classList.remove("active");
+  sideNav.classList.toggle("open");
+  menuToggle.classList.toggle("active");
+  changeMenuIcon();
+  overlay.classList.toggle("active");
 });
 
 // ==== Nav background change on scroll ====
