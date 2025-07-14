@@ -24,6 +24,12 @@ const devlogData = [
       "Adicionamos a dungeon no jogo, onde os jogadores podem enfrentar inimigos como zumbis e slimes. A dungeon inclui um layout variado com recompensas ao derrotar todos os monstros!",
   },
   {
+    date: "2025-07-13",
+    title: "Melhorias de interface",
+    content:
+      "Novo efeito de transição entre interiores, melhorias na interface da HUD, dentre outras melhorias visuais.",
+  },
+  {
     date: "2025-07-10",
     title: "Primeira versão dos interiores!",
     content:
@@ -160,7 +166,7 @@ const TAG_MAP = [
   {
     tag: "Sistema",
     icon: "⚙️",
-    keywords: ["sistema", "inventário", "combate", "IA", "rotina"],
+    keywords: ["sistema", "inventário", "combate", "IA", "rotina", "interface"],
   },
   {
     tag: "Bug",
@@ -265,7 +271,7 @@ const charactersData = [
   {
     name: "Lupi Nuki",
     image: "lupi.png",
-    description: "Tanuki curioso e tagarela, fã de sementes estranhas.",
+    description: "Tanuki curioso e tagarela, fã de sementes estranhas. Melhor amigo de Rayy.",
   },
   {
     name: "Selene Hawke",
@@ -290,7 +296,7 @@ const charactersData = [
   {
     name: "Milo Plume",
     image: "milo.png",
-    description: "Tucano calmo e observador, melhor amigo de Rayy.",
+    description: "Tucano calmo e observador, amigo do Lupi",
   },
   {
     name: "Max Rook",
