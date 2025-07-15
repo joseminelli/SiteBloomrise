@@ -18,6 +18,12 @@ if (!showTrailer) {
 // ==== Dados do Devlog ====
 const devlogData = [
   {
+    date: "2025-07-15",
+    title: "Guia do Aventureiro Adicionado!",
+    content:
+      "Adicionamos o Guia do Aventureiro, livro de metas com missões que vão guiar o jogador na exploração do mundo de Bloomrise. O guia inclui dicas, objetivos e recompensas para ajudar na progressão do jogo.",
+  },
+  {
     date: "2025-07-11",
     title: "Dungeon adicionada!",
     content:
