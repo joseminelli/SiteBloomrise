@@ -1,5 +1,5 @@
 // ==== Configurações ====
-const showTrailer = false;
+const showTrailer = true;
 
 // ==== Trailer Section (opcional) ====
 if (!showTrailer) {
