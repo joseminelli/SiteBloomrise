@@ -18,6 +18,12 @@ if (!showTrailer) {
 // ==== Dados do Devlog ====
 const devlogData = [
   {
+    date: "2025-07-18",
+    title: "Novas interações com arvores e objetos destrutíveis!",
+    content:
+      "Adicionamos interações com árvores e objetos destrutíveis, permitindo que os jogadores cortem árvores para coletar madeira e destruam barris para obter itens. Além disso foram adicionados novos Efeitos sonoros para melhorar a experiência.",
+  },
+  {
     date: "2025-07-15",
     title: "Guia do Aventureiro Adicionado!",
     content:
