@@ -18,6 +18,24 @@ if (!showTrailer) {
 // ==== Dados do Devlog ====
 const devlogData = [
   {
+    date: "2025-08-02",
+    title: "Detecção automática de idiomas e Lançamento Global",
+    content:
+      "Idioma d jogo agora é detectado automáticamente pelo sistema, possibilitando que pessoas fora do Brasil aproveitem bloomrise!"
+  },
+  {
+    date: "2025-07-28",
+    title: "Baú da Rayy",
+    content:
+      "Adicionado baú na casa da Rayy para guardar itens importantes"
+  },
+  {
+    date: "2025-07-23",
+    title: "Lançamento oficial!",
+    content:
+      "Lançamento oficial de bloomrise na PlayStore!"
+  },
+  {
     date: "2025-07-18",
     title: "Novas interações com arvores e objetos destrutíveis!",
     content:
