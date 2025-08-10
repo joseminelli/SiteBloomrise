@@ -8,12 +8,12 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta
       name="description"
-      content="Explore dungeons e proteja sua vila em Tales of Bloomrise, um RPG brasileiro em pixel art. Faça o pré-registro na Google Play e junte-se à nossa comunidade no Discord!"
+      content="Explore dungeons e proteja sua vila em Tales of Bloomrise, um RPG brasileiro em pixel art. Faça o download na Google Play e junte-se à nossa comunidade no Discord!"
     />
     <meta property="og:title" content="Tales of Bloomrise" />
     <meta
       property="og:description"
-      content="Explore dungeons e proteja sua vila em Tales of Bloomrise, um RPG brasileiro em pixel art. Faça o pré-registro!"
+      content="Explore dungeons e proteja sua vila em Tales of Bloomrise, um RPG brasileiro em pixel art. Jogue agora!"
     />
     <meta
       property="og:image"
@@ -40,184 +40,10 @@
             target="_blank"
             class="hud-button-big"
           >
-            <span>Pré-registre-se na Google Play</span>
+            <span> Faça o download na Google Play</span>
           </a>
           <div class="metric bigApple">
-            <span>Mais de 900 downloads!</span>
-            <p>Obrigado por apoiar Tales of Bloomrise na Play Store 💚</p>
-          </div>
-          
-        </div>
-      </header>
-      <div id="nav-bur-mobile" class="nav-blur-layer"></div>
-      <button id="menu-toggle" class="menu-button">
-        <img src="img/hud/btn_menu.png" id="menu-toggle-img" alt="Abrir menu" />
-      </button>
-      <nav class="side-nav">
-        <a href="#sobre">Sobre</a>
-        <a href="#trailer">Trailer</a>
-        <a href="#comunidade">Comunidade</a>
-        <a href="#galeria">Galeria</a>
-        <a href="#personagens">Personagens</a>
-        <a href="#devlog">Devlog</a>
-      </nav>
-      <div id="overlay"></div>
-
-      <nav id="main-nav">
-        <div id="nav-bur" class="nav-blur-layer"></div>
-        <a class="hud-button-small" href="#sobre">Sobre</a>
-        <a class="hud-button-small" href="#trailer">Trailer</a>
-        <a class="hud-button-small" href="#comunidade">Comunidade</a>
-        <a class="hud-button-small" href="#galeria">Galeria</a>
-        <a class="hud-button-small" href="#personagens">Personagens</a>
-        <a class="hud-button-small" href="#devlog">Devlog</a>
-      </nav>
-
-      <section id="sobre" class="section">
-        <h2>Sobre o Jogo</h2>
-        <p>
-          <strong>Tales of Bloomrise</strong> é um RPG brasileiro em pixel art
-          que combina exploração de dungeons com a vida em uma vila cheia de
-          personagens únicos. Você joga como <strong>Rayy</strong>, uma
-          aventureira que protege Bloomrise e descobre segredos escondidos nas
-          ruínas próximas.
-        </p>
-        <p>
-          Combinando combate, enigmas e relacionamentos com NPCs, o jogo promete
-          uma experiência nostálgica e imersiva para quem curte jogos como
-          Stardew Valley e Zelda clássico.
-        </p>
-      </section>
-
-      <section id="trailer" class="section trailer">
-        <h2>Trailer</h2>
-        <p>Assista ao trailer oficial:</p>
-<iframe width="1236" height="695" src="https://www.youtube.com/embed/ScTLjYgbVE0" title="Tales Of Bloomrise Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        
-      </section>
-
-      <section id="comunidade" class="section">
-        <h2>Junte-se à Comunidade</h2>
-        <p>
-          Entre no nosso Discord para acompanhar o desenvolvimento, dar feedback
-          e conhecer outros jogadores!
-        </p>
-        <a
-          href="https://discord.gg/4QSxuG7RK7"
-          target="_blank"
-          class="hud-button-mid"
-        >
-          <span>Nosso discord!</span>
-        </a>
-      </section>
-
-      <section id="galeria" class="section">
-        <h2>Galeria de Fotos</h2>
-        <div class="gallery">
-          <!-- fotos -->
-        </div>
-      </section>
-
-      <section id="personagens" class="section">
-        <h2>Personagens</h2>
-        <div class="characters">
-          <!-- personagens -->
-        </div>
-      </section>
-
-      <section id="devlog" class="section">
-        <h2>Devlog</h2>
-        <div id="devlog-container"></div>
-      </section>
-
-      <footer>
-        <p>© 2025 Minelli. Todos os direitos reservados.</p>
-      </footer>
-    </div>
-    <!-- Modal com preview, setas e zoom -->
-    <div
-      id="image-modal"
-      class="image-modal"
-      tabindex="0"
-      aria-hidden="true"
-      role="dialog"
-      aria-label="Preview da imagem da galeria"
-    >
-      <button
-        id="modal-close"
-        class="modal-close"
-        role="button"
-        aria-label="Fechar modal"
-      >
-        <img src="img/hud/btn_close.png" alt="Anterior" class="arrow-icon" />
-      </button>
-
-      <button id="modal-prev" class="modal-nav" aria-label="Imagem anterior">
-        <img
-          src="img/hud/btn_arrow_left.png"
-          alt="Anterior"
-          class="arrow-icon"
-        />
-      </button>
-
-      <img class="modal-content" id="modal-img" alt="Preview da imagem" />
-
-      <button id="modal-next" class="modal-nav" aria-label="Próxima imagem">
-        <img
-          src="img/hud/btn_arrow_right.png"
-          alt="Próxima"
-          class="arrow-icon"
-        />
-      </button>
-    </div>
-  </body>
-  <script src="script.js"></script>
-  <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tales of Bloomrise</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <meta
-      name="description"
-      content="Explore dungeons e proteja sua vila em Tales of Bloomrise, um RPG brasileiro em pixel art. Faça o pré-registro na Google Play e junte-se à nossa comunidade no Discord!"
-    />
-    <meta property="og:title" content="Tales of Bloomrise" />
-    <meta
-      property="og:description"
-      content="Explore dungeons e proteja sua vila em Tales of Bloomrise, um RPG brasileiro em pixel art. Faça o pré-registro!"
-    />
-    <meta
-      property="og:image"
-      content="http://talesofbloomrise.com//img/social-preview.jpg"
-    />
-    <meta property="og:url" content="http://talesofbloomrise.com/" />
-    <meta property="og:type" content="website" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-  </head>
-  <body>
-    <div class="parallax-bg"></div>
-
-    <div class="content">
-      <header>
-        <div class="blur-layer"></div>
-        <img src="img/logo.png" alt="Tales of Bloomrise Logo" class="logo" />
-        <p>
-          Explore dungeons, proteja sua vila e viva uma aventura em pixel art
-        </p>
-        <div class="centered-button collum">
-          <a
-            href="https://play.google.com/store/apps/details?id=com.minelli.talesofbloomrise"
-            target="_blank"
-            class="hud-button-big"
-          >
-            <span>Pré-registre-se na Google Play</span>
-          </a>
-          <div class="metric bigApple">
-            <span>Mais de 1200 pré-registros!</span>
+            <span>Mais de 1.000 downloads!</span>
             <p>Obrigado por apoiar Tales of Bloomrise na Play Store 💚</p>
           </div>
           
@@ -347,6 +173,7 @@
     </div>
   </body>
   <script src="script.js"></script>
+  
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -392,6 +219,5 @@
   ]
 }
 </script>
-</html>
 
 </html>
