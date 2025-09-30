@@ -398,6 +398,7 @@ nav a:focus {
 
 .devlog-tag {
     display: inline-block;
+    font-family: 'Big Apple', monospace;
     background-color: #aaa;
     color: white;
     font-size: 0.75rem;
@@ -408,61 +409,90 @@ nav a:focus {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-bottom: 6px;
-    font-family: 'Big Apple', monospace;
 }
 
+/* 🌍 Mundo */
 .tag-mundo {
-    background-color: #f2c7c7 !important;
-    /* rosa pastel claro */
+    background-color: #f2c7c7 !important; /* rosa pastel claro */
     color: #9e4a4a !important;
 }
 
+/* ⚔️ Combate */
 .tag-combate {
-    background-color: #c7f2c7 !important;
-    /* verde pastel claro */
+    background-color: #c7f2c7 !important; /* verde pastel claro */
     color: #4a9e4a !important;
 }
 
+/* 📜 Missão */
 .tag-missão {
-    background-color: #dcefc7 !important;
-    /* verde pastel claro */
+    background-color: #dcefc7 !important; /* verde oliva pastel */
     color: #4a6f35 !important;
 }
 
+/* 💬 História */
 .tag-história {
-    background-color: #c7d7f2 !important;
-    /* azul pastel claro */
+    background-color: #c7d7f2 !important; /* azul pastel claro */
     color: #315a9e !important;
 }
 
+/* 🧑 Personagem */
 .tag-personagem {
-    background-color: #f2c7f2 !important;
-    /* rosa pastel claro */
+    background-color: #f2c7f2 !important; /* rosa/lilás pastel */
     color: #9e4a9e !important;
 }
 
+/* ⚙️ Sistema */
 .tag-sistema {
-    background-color: #c7d7ef !important;
-    /* azul pastel claro */
+    background-color: #c7d7ef !important; /* azul pastel mais neutro */
     color: #315a9e !important;
 }
 
+/* 🐛 Bug */
 .tag-bug {
-    background-color: #f2d6d6 !important;
-    /* vermelho pastel claro */
+    background-color: #f2d6d6 !important; /* vermelho pastel claro */
     color: #9e4a4a !important;
 }
 
-.tag-atualizacao {
-    background-color: #f9ebc7 !important;
-    /* amarelo pastel claro */
-    color: #9e8a31 !important;
+/* 🏰 Dungeon */
+.tag-dungeon {
+    background-color: #d6c7f2 !important; /* roxo pastel claro */
+    color: #6f4a9e !important;
 }
 
-.tag-dungeon {
-    background-color: #d6c7f2 !important;
-    /* roxo pastel claro */
-    color: #6f4a9e !important;
+/* ⚡ Performance */
+.tag-performance {
+    background-color: #e2f2c7 !important; /* verde amarelado pastel */
+    color: #6f9e31 !important;
+}
+
+/* 🌦️ Clima */
+.tag-clima {
+    background-color: #c7ecf2 !important; /* azul/ciano pastel */
+    color: #317f9e !important;
+}
+
+/* 🎨 Personalização */
+.tag-personalização {
+    background-color: #f2e0c7 !important; /* bege/laranja pastel */
+    color: #9e6f31 !important;
+}
+
+/* 🌐 Tradução */
+.tag-tradução {
+    background-color: #e0c7f2 !important; /* lilás pastel */
+    color: #6f319e !important;
+}
+
+/* 🌿 Geral (fallback) */
+.tag-geral {
+    background-color: #d6f2d6 !important; /* verde suave */
+    color: #317f31 !important;
+}
+
+/* 🟨 Atualizações */
+.tag-atualizacao {
+    background-color: #f9ebc7 !important; /* amarelo pastel */
+    color: #9e8a31 !important;
 }
 
 

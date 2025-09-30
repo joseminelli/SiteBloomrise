@@ -1,39 +1,103 @@
 // ==== Configurações ====
 const showTrailer = true;
 
-// ==== Trailer Section (opcional) ====
-if (!showTrailer) {
-  const trailerSection = document.getElementById("trailer");
-  if (trailerSection) trailerSection.remove();
-
-  const trailerNavLink = document.querySelector('#main-nav a[href="#trailer"]');
-  if (trailerNavLink) trailerNavLink.remove();
-
-  const trailerSideNavLink = document.querySelector(
-    '.side-nav a[href="#trailer"]'
-  );
-  if (trailerSideNavLink) trailerSideNavLink.remove();
-}
-
 // ==== Dados do Devlog ====
 const devlogData = [
   {
     date: "2025-08-02",
     title: "Detecção automática de idiomas e Lançamento Global",
     content:
-      "Idioma d jogo agora é detectado automáticamente pelo sistema, possibilitando que pessoas fora do Brasil aproveitem bloomrise!"
+      "Idioma do jogo agora é detectado automáticamente pelo sistema, possibilitando que pessoas fora do Brasil aproveitem Bloomrise!",
   },
   {
     date: "2025-07-28",
     title: "Baú da Rayy",
-    content:
-      "Adicionado baú na casa da Rayy para guardar itens importantes"
+    content: "Adicionado baú na casa da Rayy para guardar itens importantes",
   },
   {
     date: "2025-07-23",
     title: "Lançamento oficial!",
-    content:
-      "Lançamento oficial de bloomrise na PlayStore!"
+    content: "Lançamento oficial de Bloomrise na PlayStore!",
+  },
+  {
+    date: "2025-08-05",
+    title: "Atualização 1.1.3",
+    content: `
+      ● Adicionado clima chuvoso e de ventania (não afetam a gameplay... ainda!) <br>
+      ○ Corrigido problema dos NPCs travarem em objetos <br>
+      ○ Adicionado novos idiomas, em detecção automática <br>
+      ○ Correção de bugs
+    `,
+  },
+  {
+    date: "2025-08-11",
+    title: "Atualização 1.1.4",
+    content: `
+      ● Nova bússola adicionada para ajudar na exploração — quanto mais perto do caminho certo, mais fácil será notar o destino. <br>
+      ○ Adicionado clima chuvoso e ventania (não afetam a gameplay… ainda!) <br>
+      ○ Correção de bugs
+    `,
+  },
+  {
+    date: "2025-08-14",
+    title: "Atualização 1.1.6",
+    content: `
+      - Novo alerta ao tentar interagir com lojas fora do horário de funcionamento. <br>
+      - Novos marcadores da bússola adicionados em áreas internas. <br>
+      - Textos traduzidos que anteriormente não estavam localizados. <br>
+      - Ícones da interface aprimorados, deixando a navegação mais clara e agradável. <br>
+
+    `,
+  },
+  {
+    date: "2025-08-18",
+    title: "Atualização 1.1.6 Hotfix",
+    content: `
+      - Correção da interação com a loja da forja e do bar <br>
+      - Correção de área de toque das interfaces
+    `,
+  },
+  {
+    date: "2025-08-28",
+    title: "Atualização 1.2.0",
+    content: `
+      - Novos Inimigos: Cobras, Morcegos e Baby Slimes foram adicionados ao mundo. <br>
+      - IA Melhorada: O Zumbi agora possui um ataque de "agarrão", e o combate em grupo está mais tático. <br>
+      - Visuais Atualizados: As roupas de vários NPCs foram redesenhadas.
+    `,
+  },
+  {
+    date: "2025-09-17",
+    title: "Atualização 1.3.0",
+    content: `
+      - Dungeons Geradas Aleatoriamente com rejogabilidade infinita. <br>
+      - Novo Item - Amuleto de Viagem. <br>
+      - Início da Personalização de Lares (mesa e cadeira reposicionáveis). <br>
+      - Melhorias no Combate com ajustes de timing.
+    `,
+  },
+  {
+    date: "2025-09-26",
+    title: "Atualização 1.3.2.3",
+    content: `
+      - Dungeons Infinitas com novos layouts a cada entrada. <br>
+      - Geladeira: Novo item para armazenar comidas e bebidas. <br>
+      - Decoração (Em Breve): Mais itens coletáveis e posicionáveis no mundo (sem salvamento ainda). <br>
+      - Google Play Games: Conquistas adicionadas para todas as missões do guia + leaderboard de monstros derrotados.
+    `,
+  },
+  {
+    date: "2025-09-29",
+    title: "Atualização 1.3.5.0",
+    content: `
+      - Melhoria na Geração Procedural das Dungeons. <br>
+      - Melhoria de Performance. <br>
+      - Correções nos NPCs em interiores. <br>
+      - Balanceamento dos Upgrades. <br>
+      - Correção na Área de Ataque das Armas. <br>
+      - Correção no Inventário na Loja. <br>
+      - Em Breve: Nova arma com dano em área!
+    `,
   },
   {
     date: "2025-07-18",
@@ -175,101 +239,97 @@ const devlogData = [
   },
 ];
 
+// ==== Dados do Devlog ====
 const TAG_MAP = [
   {
     tag: "Combate",
-    icon: "🧟",
-    keywords: ["inimigo", "inimigos", "slime", "orc", "monstros"],
+    icon: "⚔️",
+    keywords: [
+      "inimigo", "inimigos", "monstro", "monstros",
+      "slime", "orc", "zumbi", "morcego", "cobra",
+      "ataque", "batalha", "combate", "luta"
+    ],
   },
-  { tag: "Missão", icon: "📜", keywords: ["missão", "missões", "quest"] },
+  { 
+    tag: "Missão", 
+    icon: "📜", 
+    keywords: ["missão", "missões", "quest", "objetivo", "tarefa", "metas"] 
+  },
   {
     tag: "Mundo",
-    icon: "🏠",
-    keywords: ["interior", "interiores", "casa"],
+    icon: "🌍",
+    keywords: [
+      "interior", "interiores", "casa", "casas", "loja", "lojas",
+      "mapa", "mundo", "vila", "ambiente", "exploração"
+    ],
   },
   {
     tag: "História",
     icon: "💬",
-    keywords: ["diálogo", "dialogo", "história", "historia", "tutorial"],
+    keywords: [
+      "diálogo", "dialogo", "fala", "história", "historia",
+      "narrativa", "tutorial", "cutscene"
+    ],
   },
-  { tag: "Personagem", icon: "🧑", keywords: ["npc", "loja", "personagem"] },
+  {
+    tag: "Personagem",
+    icon: "🧑",
+    keywords: [
+      "npc", "personagem", "ferreiro", "mercador", "vendedor", 
+      "rayy", "rotina"
+    ],
+  },
   {
     tag: "Sistema",
     icon: "⚙️",
-    keywords: ["sistema", "inventário", "combate", "IA", "rotina", "interface"],
-  },
-  {
-    tag: "Bug",
-    icon: "🐛",
-    keywords: ["bug", "erro", "problema", "falha"],
+    keywords: [
+      "sistema", "inventário", "inventario", "hud",
+      "ia", "rotina", "interface", "menu", "save", "salvar"
+    ],
   },
   {
     tag: "Dungeon",
     icon: "🏰",
-    keywords: ["dungeon", "masmorra", "caverna", "labirinto"],
+    keywords: [
+      "dungeon", "masmorra", "caverna", "labirinto", "andar",
+      "procedural", "geração", "gerado"
+    ],
+  },
+  {
+    tag: "Bug",
+    icon: "🐛",
+    keywords: ["bug", "erro", "problema", "falha", "correção", "corrigido", "fix"],
+  },
+  {
+    tag: "Performance",
+    icon: "⚡",
+    keywords: ["performance", "otimização", "otimiz", "fps", "fluidez", "carregamento", "lag"],
+  },
+  {
+    tag: "Clima",
+    icon: "🌦️",
+    keywords: ["clima", "chuva", "tempestade", "vento", "dia-noite", "noite", "dia"],
+  },
+  {
+    tag: "Personalização",
+    icon: "🎨",
+    keywords: ["decoração", "decorar", "personalização", "móvel", "cama", "mesa", "cadeira"],
+  },
+  {
+    tag: "Tradução",
+    icon: "🌐",
+    keywords: ["idioma", "tradução", "localização", "língua", "english", "português"],
   },
 ];
 
-function getTagAndIcon(title) {
-  const lowerTitle = title.toLowerCase();
-
-  for (const item of TAG_MAP) {
-    if (item.keywords.some((keyword) => lowerTitle.includes(keyword))) {
-      return { tag: item.tag, icon: item.icon };
-    }
-  }
-
-  return { tag: "Geral", icon: "🌿" };
-}
-
-const devlogContainer = document.getElementById("devlog-container");
-
-devlogData.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-devlogData.forEach((entry) => {
-  const div = document.createElement("div");
-  div.className = "devlog-entry";
-  const { tag, icon } = getTagAndIcon(entry.title);
-
-  // Converte a data para o formato brasileiro
-  const formattedDate = new Date(entry.date).toLocaleDateString("pt-BR", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  });
-
-  div.innerHTML = `
-    <span class="devlog-tag tag-${tag.toLowerCase()}">${tag}</span>
-    <h3>${icon} ${entry.title}</h3>
-    <small>${formattedDate}</small>
-    <p>${entry.content}</p>
-  `;
-
-  devlogContainer.appendChild(div);
-});
-
 // ==== Dados da Galeria ====
 const galleryData = [
-  "print1.webp",
-  "print2.webp",
-  "print3.webp",
-  "print4.webp",
+  "screenshot1.jpg",
+  "screenshot2.jpg",
+  "screenshot3.jpg",
+  "screenshot4.jpg",
   // Adicione mais imagens conforme necessário
 ];
-
-const galleryContainer = document.querySelector(".gallery");
-
-// Criar as imagens e já adicionar evento para abrir modal
-galleryData.forEach((src, i) => {
-  const img = document.createElement("img");
-  img.src = `img/galeria/${src}`;
-  img.alt = "Imagem da galeria";
-  img.style.cursor = "pointer";
-
-  img.addEventListener("click", () => openModal(i));
-
-  galleryContainer.appendChild(img);
-});
 
 // ==== Dados dos Personagens ====
 const charactersData = [
@@ -301,7 +361,8 @@ const charactersData = [
   {
     name: "Lupi Nuki",
     image: "lupi.png",
-    description: "Tanuki curioso e tagarela, fã de sementes estranhas. Melhor amigo de Rayy.",
+    description:
+      "Tanuki curioso e tagarela, fã de sementes estranhas. Melhor amigo de Rayy.",
   },
   {
     name: "Selene Hawke",
@@ -334,6 +395,106 @@ const charactersData = [
     description: "Antigo guerreiro obcecado por glória.",
   },
 ];
+
+// ==== Trailer Section (opcional) ====
+if (!showTrailer) {
+  const trailerSection = document.getElementById("trailer");
+  if (trailerSection) trailerSection.remove();
+
+  const trailerNavLink = document.querySelector('#main-nav a[href="#trailer"]');
+  if (trailerNavLink) trailerNavLink.remove();
+
+  const trailerSideNavLink = document.querySelector(
+    '.side-nav a[href="#trailer"]'
+  );
+  if (trailerSideNavLink) trailerSideNavLink.remove();
+}
+
+function getTagsAndIcons(title, content) {
+  const lowerTitle = title.toLowerCase();
+  const lowerContent = content.toLowerCase();
+
+  const foundTags = [];
+
+  for (const item of TAG_MAP) {
+    // Verifica se alguma keyword aparece no título ou conteúdo
+    if (
+      item.keywords.some(
+        (keyword) =>
+          lowerTitle.includes(keyword.toLowerCase()) ||
+          lowerContent.includes(keyword.toLowerCase())
+      )
+    ) {
+      // Evita tags duplicadas
+      if (!foundTags.some((tag) => tag.tag === item.tag)) {
+        foundTags.push({ tag: item.tag, icon: item.icon });
+      }
+    }
+
+    // Limita a 5 tags no máximo
+    if (foundTags.length >= 5) break;
+  }
+
+  // Se nada foi encontrado, retorna "Geral"
+  if (foundTags.length === 0) {
+    return [{ tag: "Geral", icon: "🌿" }];
+  }
+
+  return foundTags;
+}
+
+const devlogContainer = document.getElementById("devlog-container");
+
+devlogData.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+devlogData.forEach((entry) => {
+  const div = document.createElement("div");
+  div.className = "devlog-entry";
+
+  // Pega até 5 tags a partir do título + conteúdo
+  const tags = getTagsAndIcons(entry.title, entry.content);
+
+  // Converte a data para o formato brasileiro
+  const formattedDate = new Date(entry.date).toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+
+  // Renderiza todas as tags encontradas
+  const tagsHTML = tags
+    .map(
+      ({ tag, icon }) =>
+        `<span class="devlog-tag tag-${tag.toLowerCase()}">${icon} ${tag}</span>`
+    )
+    .join(" ");
+
+  div.innerHTML = `
+    <div class="devlog-tags">
+      ${tagsHTML}
+    </div>
+    <h3>${entry.title}</h3>
+    <small>${formattedDate}</small>
+    <p>${entry.content}</p>
+  `;
+
+  devlogContainer.appendChild(div);
+});
+
+
+const galleryContainer = document.querySelector(".gallery");
+
+// Criar as imagens e já adicionar evento para abrir modal
+galleryData.forEach((src, i) => {
+  const img = document.createElement("img");
+  img.src = `img/galeria/${src}`;
+  img.alt = "Imagem da galeria";
+  img.style.cursor = "pointer";
+
+  img.addEventListener("click", () => openModal(i));
+
+  galleryContainer.appendChild(img);
+});
 
 const charactersContainer = document.querySelector(".characters");
 window.addEventListener("load", () => {
