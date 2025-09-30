@@ -502,12 +502,30 @@ window.addEventListener("load", () => {
     const article = document.createElement("article");
     article.className = "character-card";
     article.innerHTML = `
-          <img src="img/personagens/${char.image}" alt="${char.name} - tales of bloomrise" />
-          <h3>${char.name}</h3>
-          <p>${char.description}</p>
-        `;
+      <img src="img/personagens/${char.image}" alt="${char.name} - Tales of Bloomrise" />
+      <h3>${char.name}</h3>
+      <p>${char.description}</p>
+    `;
     charactersContainer.appendChild(article);
   });
+
+  // 🔹 Cria JSON-LD com os personagens
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Tales of Bloomrise",
+    "character": charactersData.map((char) => ({
+      "@type": "VideoGameCharacter",
+      "name": char.name,
+      "description": char.description,
+      "image": `https://seudominio.com/img/personagens/${char.image}`,
+    })),
+  };
+
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.text = JSON.stringify(schemaData, null, 2);
+  document.head.appendChild(script);
 
   updateMaskClasses(charactersContainer); // se quiser aplicar fade também
 });
