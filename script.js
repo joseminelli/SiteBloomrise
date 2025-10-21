@@ -1,8 +1,41 @@
 // ==== Configurações ====
 const showTrailer = true;
+let isAnimating = false;
 
 // ==== Dados do Devlog ====
 const devlogData = [
+  {
+    date: "2025-10-21",
+    title: "Atualização 1.4.0.0: Cultivo, Crafting e Expansão do Mundo!",
+    content: `
+      Grandes novidades e melhorias chegaram! Veja o que mudou:<br><br>
+      
+      <strong>🌱 Cultivo & Novo Sistema de Crafting</strong><br>
+      ● <strong>Cultivo:</strong> Plante ingredientes raros! Compre sementes na Loja de Flores e use Pacotes de Terra (comprados ou feitos na Composteira). Suas plantas crescem offline!<br>
+      ● <strong>Crafting com Tempo:</strong> Itens agora levam tempo para serem criados em Mesas de Trabalho (Bancada, Forja, Bigorna) e progridem offline. Colete quando prontos!<br>
+      ● <strong>Novos Equipamentos:</strong> Crie Espadas, Machados e Picaretas (básicos na Bancada da Rayy, melhorados na Bigorna do Ferreiro).<br>
+      ● <strong>Processamento de Minério:</strong> Ferro e Ouro agora são minérios brutos. Processe-os na Forja!<br><br>
+      
+      <strong>🗺️ Expansão do Mundo & Novos Desafios</strong><br>
+      ● <strong>Caverna de Minérios:</strong> Entrada desbloqueável! Explore suas profundezas.<br>
+      ● <strong>Ponte Quebrada:</strong> Conserte a ponte dentro da caverna para acessar uma nova área mística.<br>
+      ● <strong>Novos Recursos:</strong> Encontre Chromita (raríssimo!) e Cogumelos Místicos na área mística.<br>
+      ● <strong>Mapa Expandido:</strong> A região <strong>leste</strong> foi aberta! (Mais conteúdo em breve).<br>
+      ● <strong>Novas Missões:</strong> Converse com Lupi, Selene e Lyla para novas aventuras.<br><br>
+      
+      <strong>✨ NPCs & Melhorias Gerais</strong><br>
+      ● <strong>NPCs Aprimorados:</strong> Comportamento mais natural e agora interagem entre si!<br>
+      ● <strong>Otimizações:</strong> Melhorias significativas de performance e fluidez, especialmente no mobile.<br>
+      ● <strong>HUD Melhorada:</strong> Ajustes na interface.<br>
+      ● <strong>Novas Opções Gráficas:</strong><br>
+      &nbsp;&nbsp;&nbsp;○ <strong>FPS Alvo:</strong> Escolha entre 30, 60 (Padrão) ou 120 FPS.<br>
+      &nbsp;&nbsp;&nbsp;○ <strong>Animações Detalhadas:</strong> Ativa/desativa animações extras do ambiente.<br>
+      ● <strong>Correção de Bugs:</strong> Várias correções baseadas no feedback da comunidade.<br><br>
+      
+      <strong>🎃 Evento de Halloween!</strong><br>
+      ● <strong>Decoração Assustadora:</strong> O mundo está decorado para o Halloween (evento por tempo limitado).
+    `,
+  },
   {
     date: "2025-08-02",
     title: "Detecção automática de idiomas e Lançamento Global",
@@ -552,14 +585,27 @@ window.addEventListener("scroll", () => {
 
   // Calcula o targetY limitando proporcionalmente ao scrollPercent
   targetY = Math.max(maxTranslateY * scrollPercent, maxTranslateY);
+
+  if (!isAnimating) {
+        isAnimating = true;
+        requestAnimationFrame(animate);
+    }
 });
 
 function animate() {
-  currentY += (targetY - currentY) * 0.1;
-  bg.style.transform = `translateY(${currentY}px)`;
-  requestAnimationFrame(animate);
+    // 1. Se o valor atual está "praticamente" igual ao alvo, pare.
+    if (Math.abs(targetY - currentY) < 0.1) {
+        currentY = targetY;
+        bg.style.transform = `translateY(${currentY}px)`;
+        isAnimating = false; // Parar a animação
+        return;
+    }
+
+    // 2. Continue a animação se não parou
+    currentY += (targetY - currentY) * 0.1;
+    bg.style.transform = `translateY(${currentY}px)`;
+    requestAnimationFrame(animate); // Continua o loop
 }
-animate();
 
 // ==== Menu lateral (mobile) ====
 const menuToggle = document.getElementById("menu-toggle");
