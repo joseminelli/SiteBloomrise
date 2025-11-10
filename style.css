@@ -566,6 +566,7 @@ nav a:focus {
 
 #devlog,
 #personagens,
+#comunidade,
 #sobre,
 #galeria,
 .devlog-entry,
@@ -955,7 +956,7 @@ footer {
     font-size: 1.5em;
     margin-top: 0;
     margin-bottom: 10px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 /* Seção de Depoimentos (Testimonials) */
