@@ -5,6 +5,74 @@ let isAnimating = false;
 // ==== Dados do Devlog ====
 const devlogData = [
   {
+    date: "2025-11-03",
+    title: "Atualização 1.4.3.0: A Praia Chegou! (Pesca e Detector de Metais)",
+    content: `
+      Preparem-se para sentir a brisa do mar! Esta atualização traz uma área totalmente nova para explorar e novas formas de jogar.<br><br>
+      
+      <strong>🌊 A Nova Área da Praia!</strong><br>
+      ● A área da praia foi desbloqueada! Explore as areias quentes, encontre novas paisagens e descubra os segredos que o oceano guarda.<br><br>
+      
+      <strong>🎣 Novas Atividades na Praia!</strong><br>
+      ● <strong>Novo Sistema de Pesca:</strong> Pegue sua vara de pesca! Novos peixes podem ser encontrados nas águas da praia, além de rios e lagos.<br>
+      ● <strong>Detector de Metais:</strong> Há tesouros escondidos sob a areia! Use a nova ferramenta para encontrar itens perdidos e materiais valiosos.<br>
+      ● <strong>Novas Receitas de Crafting:</strong> Descubra novos pratos e itens úteis para fabricar com seus novos achados!<br><br>
+      
+      <strong>✨ Melhorias e Correções</strong><br>
+      ● Ajustes de desempenho para garantir uma experiência mais suave na vila e na nova área da praia.<br>
+      ● Vários bugs menores e problemas de estabilidade relatados pela comunidade foram corrigidos.
+    `
+  },
+  {
+    date: "2025-10-27",
+    title: "Atualização 1.4.2.0: Controles de Teclado no PC e Melhorias!",
+    content: `
+      Esta atualização traz melhorias focadas na experiência do PC e correções importantes!<br><br>
+      
+      <strong>🖥️ Melhorias para Google Play Games no PC</strong><br>
+      ● <strong>Novos Controles de Teclado:</strong> Implementamos controles mais intuitivos!<br>
+      &nbsp;&nbsp;&nbsp;○ <strong>WASD:</strong> Movimentação do personagem.<br>
+      &nbsp;&nbsp;&nbsp;○ <strong>Enter:</strong> Usar a arma ou ferramenta equipada.<br>
+      &nbsp;&nbsp;&nbsp;○ <strong>E:</strong> Abrir/Fechar o inventário.<br>
+      &nbsp;&nbsp;&nbsp;○ <strong>Esc:</strong> Abrir/Fechar o menu de pausa.<br>
+      &nbsp;&nbsp;&nbsp;○ <strong>Números (0-9):</strong> Usar o item na barra de ferramentas.<br><br>
+      
+      <strong>🧑‍🤝‍🧑 Interação com Lojistas Aprimorada</strong><br>
+      ● Agora ficou mais fácil conversar! Clique diretamente no NPC que está atendendo na loja para iniciar um diálogo. Clicar na área ao redor dele continua abrindo a interface da loja.<br><br>
+      
+      <strong>🐛 Correção de Bugs</strong><br>
+      ● Resolvemos vários bugs menores reportados pela comunidade para deixar a experiência mais fluida.
+    `
+  },
+  {
+    date: "2025-10-25",
+    title: "Atualização 1.4.1.0: A Biblioteca Renascida e Mais Lore!",
+    content: `
+      Preparem-se para mergulhar ainda mais fundo no nosso mundo com uma atualização recheada de novidades, lore e melhorias!<br><br>
+      
+      <strong>📚 A Biblioteca Renascida!</strong><br>
+      ● O interior da biblioteca do Victor foi completamente remodelado! Dê uma olhada no novo espaço, mais aconchegante e cheio de conhecimento.<br><br>
+      
+      <strong>📖 Novos Livros para Colecionar e Ler</strong><br>
+      ● <strong>Guia do Jardineiro:</strong> Aprenda os segredos do plantio e descubra informações sobre cada planta (Gerado automaticamente!).<br>
+      ● <strong>Diário da Lyla:</strong> Descubra os pensamentos (e fofocas!) da nossa querida fashionista sobre a vida em Bloomrise.<br>
+      ● <strong>Guia de Crafting:</strong> Todas as receitas do jogo, onde fazê-las e o tempo necessário (Gerado automaticamente!).<br>
+      ● <strong>Bestiário de Bloomrise:</strong> Registre os monstros que você derrotar e aprenda mais sobre eles (Automático com descoberta!).<br>
+      ● <strong>Crônicas de Rook:</strong> Descubra o passado aventureiro do Max antes dele ajudar a fundar a vila!<br>
+      ● <strong>Tutoriais Integrados:</strong> Muitos desses livros agora servem como guias úteis para as mecânicas do jogo!<br><br>
+      
+      <strong>💬 Mais Conversas na Vila</strong><br>
+      ● Adicionamos novos diálogos para os NPCs! Descubra mais sobre a personalidade de cada um.<br><br>
+      
+      <strong>⚡ Fazenda Mais Leve!</strong><br>
+      ● Corrigimos um lag significativo que acontecia com muitas plantações ativas. Agora sua fazenda pode crescer sem pesar no desempenho!<br><br>
+      
+      <strong>🖥️ Melhorias para PC (Google Play Games)</strong><br>
+      ● A interface de usuário recebeu melhorias específicas para quem joga no Google Play Games para PC.<br>
+      ● Mais otimizações e melhorias para a versão de PC estão a caminho!
+    `
+  },
+  {
     date: "2025-10-21",
     title: "Atualização 1.4.0.0: Cultivo, Crafting e Expansão do Mundo!",
     content: `
@@ -28,8 +96,8 @@ const devlogData = [
       ● <strong>Otimizações:</strong> Melhorias significativas de performance e fluidez, especialmente no mobile.<br>
       ● <strong>HUD Melhorada:</strong> Ajustes na interface.<br>
       ● <strong>Novas Opções Gráficas:</strong><br>
-      &nbsp;&nbsp;&nbsp;○ <strong>FPS Alvo:</strong> Escolha entre 30, 60 (Padrão) ou 120 FPS.<br>
-      &nbsp;&nbsp;&nbsp;○ <strong>Animações Detalhadas:</strong> Ativa/desativa animações extras do ambiente.<br>
+         ○ <strong>FPS Alvo:</strong> Escolha entre 30, 60 (Padrão) ou 120 FPS.<br>
+         ○ <strong>Animações Detalhadas:</strong> Ativa/desativa animações extras do ambiente.<br>
       ● <strong>Correção de Bugs:</strong> Várias correções baseadas no feedback da comunidade.<br><br>
       
       <strong>🎃 Evento de Halloween!</strong><br>
@@ -278,54 +346,98 @@ const TAG_MAP = [
     tag: "Combate",
     icon: "⚔️",
     keywords: [
-      "inimigo", "inimigos", "monstro", "monstros",
-      "slime", "orc", "zumbi", "morcego", "cobra",
-      "ataque", "batalha", "combate", "luta"
+      "inimigo",
+      "inimigos",
+      "monstro",
+      "monstros",
+      "slime",
+      "orc",
+      "zumbi",
+      "morcego",
+      "cobra",
+      "ataque",
+      "batalha",
+      "combate",
+      "luta",
     ],
   },
-  { 
-    tag: "Missão", 
-    icon: "📜", 
-    keywords: ["missão", "missões", "quest", "objetivo", "tarefa", "metas"] 
+  {
+    tag: "Missão",
+    icon: "📜",
+    keywords: ["missão", "missões", "quest", "objetivo", "tarefa", "metas"],
   },
   {
     tag: "Mundo",
     icon: "🌍",
     keywords: [
-      "interior", "interiores", "casa", "casas", "loja", "lojas",
-      "mapa", "mundo", "vila", "ambiente", "exploração"
+      "interior",
+      "interiores",
+      "casa",
+      "casas",
+      "loja",
+      "lojas",
+      "mapa",
+      "mundo",
+      "vila",
+      "ambiente",
+      "exploração",
     ],
   },
   {
     tag: "História",
     icon: "💬",
     keywords: [
-      "diálogo", "dialogo", "fala", "história", "historia",
-      "narrativa", "tutorial", "cutscene"
+      "diálogo",
+      "dialogo",
+      "fala",
+      "história",
+      "historia",
+      "narrativa",
+      "tutorial",
+      "cutscene",
     ],
   },
   {
     tag: "Personagem",
     icon: "🧑",
     keywords: [
-      "npc", "personagem", "ferreiro", "mercador", "vendedor", 
-      "rayy", "rotina"
+      "npc",
+      "personagem",
+      "ferreiro",
+      "mercador",
+      "vendedor",
+      "rayy",
+      "rotina",
     ],
   },
   {
     tag: "Sistema",
     icon: "⚙️",
     keywords: [
-      "sistema", "inventário", "inventario", "hud",
-      "ia", "rotina", "interface", "menu", "save", "salvar"
+      "sistema",
+      "inventário",
+      "inventario",
+      "hud",
+      "ia",
+      "rotina",
+      "interface",
+      "menu",
+      "save",
+      "salvar",
     ],
   },
   {
     tag: "Dungeon",
     icon: "🏰",
     keywords: [
-      "dungeon", "masmorra", "caverna", "labirinto", "andar",
-      "procedural", "geração", "gerado"
+      "dungeon",
+      "masmorra",
+      "caverna",
+      "labirinto",
+      "andar",
+      "procedural",
+      "geração",
+      "gerado",
     ],
   },
   {
@@ -336,7 +448,15 @@ const TAG_MAP = [
   {
     tag: "Performance",
     icon: "⚡",
-    keywords: ["performance", "otimização", "otimiz", "fps", "fluidez", "carregamento", "lag"],
+    keywords: [
+      "performance",
+      "otimização",
+      "otimiz",
+      "fps",
+      "fluidez",
+      "carregamento",
+      "lag",
+    ],
   },
   {
     tag: "Clima",
@@ -346,7 +466,15 @@ const TAG_MAP = [
   {
     tag: "Personalização",
     icon: "🎨",
-    keywords: ["decoração", "decorar", "personalização", "móvel", "cama", "mesa", "cadeira"],
+    keywords: [
+      "decoração",
+      "decorar",
+      "personalização",
+      "móvel",
+      "cama",
+      "mesa",
+      "cadeira",
+    ],
   },
   {
     tag: "Tradução",
@@ -355,12 +483,24 @@ const TAG_MAP = [
   },
 ];
 
-// ==== Dados da Galeria ====
+// ==== Dados da Galeria (ATUALIZADO) ====
 const galleryData = [
-  "screenshot1.jpg",
-  "screenshot2.jpg",
-  "screenshot3.jpg",
-  "screenshot4.jpg",
+  {
+    src: "screenshot1.jpg",
+    alt: "A aventureira Rayy em combate com um slime verde na floresta de Bloomrise.",
+  },
+  {
+    src: "screenshot2.jpg",
+    alt: "Vista da vila de Bloomrise, mostrando o ferreiro e outros NPCs.",
+  },
+  {
+    src: "screenshot3.jpg",
+    alt: "Exploração de uma dungeon escura, com a personagem principal segurando uma tocha.",
+  },
+  {
+    src: "screenshot4.jpg",
+    alt: "Diálogo com o NPC J. Minelli dentro da loja de itens.",
+  },
   // Adicione mais imagens conforme necessário
 ];
 
@@ -514,14 +654,13 @@ devlogData.forEach((entry) => {
   devlogContainer.appendChild(div);
 });
 
-
 const galleryContainer = document.querySelector(".gallery");
 
-// Criar as imagens e já adicionar evento para abrir modal
-galleryData.forEach((src, i) => {
+// Criar as imagens e já adicionar evento para abrir modal (ATUALIZADO)
+galleryData.forEach((imgData, i) => {
   const img = document.createElement("img");
-  img.src = `img/galeria/${src}`;
-  img.alt = "Imagem da galeria";
+  img.src = `img/galeria/${imgData.src}`;
+  img.alt = imgData.alt; // Usa o alt descritivo
   img.style.cursor = "pointer";
 
   img.addEventListener("click", () => openModal(i));
@@ -542,16 +681,16 @@ window.addEventListener("load", () => {
     charactersContainer.appendChild(article);
   });
 
-  // 🔹 Cria JSON-LD com os personagens
+  // 🔹 Cria JSON-LD com os personagens (URL CORRIGIDA)
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "VideoGame",
-    "name": "Tales of Bloomrise",
-    "character": charactersData.map((char) => ({
+    name: "Tales of Bloomrise",
+    character: charactersData.map((char) => ({
       "@type": "VideoGameCharacter",
-      "name": char.name,
-      "description": char.description,
-      "image": `https://talesofbloomrise.com/img/personagens/${char.image}`,
+      name: char.name,
+      description: char.description,
+      image: `https://talesofbloomrise.com/img/personagens/${char.image}`, // URL CORRIGIDA
     })),
   };
 
@@ -587,38 +726,41 @@ window.addEventListener("scroll", () => {
   targetY = Math.max(maxTranslateY * scrollPercent, maxTranslateY);
 
   if (!isAnimating) {
-        isAnimating = true;
-        requestAnimationFrame(animate);
-    }
+    isAnimating = true;
+    requestAnimationFrame(animate);
+  }
 });
 
 function animate() {
-    // 1. Se o valor atual está "praticamente" igual ao alvo, pare.
-    if (Math.abs(targetY - currentY) < 0.1) {
-        currentY = targetY;
-        bg.style.transform = `translateY(${currentY}px)`;
-        isAnimating = false; // Parar a animação
-        return;
-    }
-
-    // 2. Continue a animação se não parou
-    currentY += (targetY - currentY) * 0.1;
+  // 1. Se o valor atual está "praticamente" igual ao alvo, pare.
+  if (Math.abs(targetY - currentY) < 0.1) {
+    currentY = targetY;
     bg.style.transform = `translateY(${currentY}px)`;
-    requestAnimationFrame(animate); // Continua o loop
+    isAnimating = false; // Parar a animação
+    return;
+  }
+
+  // 2. Continue a animação se não parou
+  currentY += (targetY - currentY) * 0.1;
+  bg.style.transform = `translateY(${currentY}px)`;
+  requestAnimationFrame(animate); // Continua o loop
 }
 
-// ==== Menu lateral (mobile) ====
+// ==== Menu lateral (mobile) (ATUALIZADO) ====
 const menuToggle = document.getElementById("menu-toggle");
 const menuToggleImg = document.getElementById("menu-toggle-img");
 const sideNav = document.querySelector(".side-nav");
 const overlay = document.getElementById("overlay");
 
-menuToggle.addEventListener("click", () => {
-  sideNav.classList.toggle("open");
+function toggleMenu() {
+  const isExpanded = sideNav.classList.toggle("open"); // Verifica se está abrindo
   menuToggle.classList.toggle("active");
   changeMenuIcon();
   overlay.classList.toggle("active");
-});
+  menuToggle.setAttribute("aria-expanded", isExpanded); // Define o estado de acessibilidade
+}
+
+menuToggle.addEventListener("click", toggleMenu);
 
 function changeMenuIcon() {
   menuToggleImg.classList.add("shrinking");
@@ -637,12 +779,7 @@ function changeMenuIcon() {
   }, 200);
 }
 
-overlay.addEventListener("click", () => {
-  sideNav.classList.toggle("open");
-  menuToggle.classList.toggle("active");
-  changeMenuIcon();
-  overlay.classList.toggle("active");
-});
+overlay.addEventListener("click", toggleMenu); // Reutiliza a função de toggle
 
 // ==== Nav background change on scroll ====
 const nav_bur = document.getElementById("nav-bur");
@@ -689,7 +826,7 @@ charactersContainer.addEventListener("scroll", () =>
 updateMaskClasses(devlogContainer);
 updateMaskClasses(charactersContainer);
 
-// ==== Modal da galeria ====
+// ==== Modal da galeria (ATUALIZADO) ====
 const modal = document.getElementById("image-modal");
 const modalImg = document.getElementById("modal-img");
 const modalClose = document.getElementById("modal-close");
@@ -700,13 +837,19 @@ const modalNext = document.getElementById("modal-next");
 let currentIndex = -1;
 let zoomed = false;
 
-// Função abrir modal com índice da imagem
+// Função abrir modal com índice da imagem (ATUALIZADA)
 function openModal(index) {
   currentIndex = index;
-  modalImg.src = galleryData[currentIndex]
-    ? `img/galeria/${galleryData[currentIndex]}`
-    : "";
-  modalImg.alt = `Imagem da galeria ${currentIndex + 1}`;
+  const currentImage = galleryData[currentIndex];
+
+  if (currentImage) {
+    modalImg.src = `img/galeria/${currentImage.src}`;
+    modalImg.alt = currentImage.alt; // Usa o alt descritivo
+  } else {
+    modalImg.src = "";
+    modalImg.alt = "Imagem não encontrada";
+  }
+
   modal.classList.add("show");
   modal.setAttribute("aria-hidden", "false");
   zoomed = false;
