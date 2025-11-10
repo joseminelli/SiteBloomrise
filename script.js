@@ -551,7 +551,7 @@ window.addEventListener("load", () => {
       "@type": "VideoGameCharacter",
       "name": char.name,
       "description": char.description,
-      "image": `https://seudominio.com/img/personagens/${char.image}`,
+      "image": `https://talesofbloomrise.com/img/personagens/${char.image}`,
     })),
   };
 

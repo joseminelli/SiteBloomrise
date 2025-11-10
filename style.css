@@ -1,6 +1,4 @@
 /* ------------------ Fonts & Base ------------------ */
-@import url('https://fonts.googleapis.com/css2?family=Lexend&family=Montserrat:wght@400;700&display=swap');
-
 @font-face {
     font-family: 'Big Apple';
     src: url('./Big Apple 3PM.ttf') format('truetype');
