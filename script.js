@@ -533,6 +533,16 @@ if (overlay) {
   overlay.addEventListener("click", toggleMenu);
 }
 
+if (sideNav) {
+  sideNav.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      if (sideNav.classList.contains("open")) {
+        toggleMenu();
+      }
+    });
+  });
+}
+
 // ==================== Botao voltar ao topo ====================
 if (backToTopButton) {
   window.addEventListener("scroll", () => {
