@@ -1,0 +1,114 @@
+﻿{
+  "meta": {
+    "title": "Tales of Bloomrise",
+    "description": "Explore dungeons and protect your village in Tales of Bloomrise, a Brazilian pixel-art RPG. Download it on Google Play and join our Discord community!",
+    "ogDescription": "Explore dungeons and protect your village in Tales of Bloomrise, a Brazilian pixel-art RPG. Play now!"
+  },
+  "skip": {
+    "content": "Skip to main content"
+  },
+  "lang": {
+    "label": "Language",
+    "selectAria": "Select language",
+    "modalTitle": "Choose your language",
+    "modalSubtitle": "Select a language to continue. You can change it later in the footer."
+  },
+  "hero": {
+    "subtitle": "Explore dungeons, protect your village, and live a pixel-art adventure.",
+    "highlight1": "Brazilian pixel-art RPG",
+    "highlight2": "Dungeons, village life, and long-term progression",
+    "highlight3": "Frequent updates shaped by community feedback",
+    "cta": {
+      "googlePlay": "Download on Google Play",
+      "steam": "View on Steam!"
+    },
+    "metric": {
+      "downloads": "Over 8,700 downloads!",
+      "thanks": "Thanks for supporting Tales of Bloomrise! 💚"
+    }
+  },
+  "nav": {
+    "about": "About",
+    "trailer": "Trailer",
+    "features": "Features",
+    "testimonials": "Testimonials",
+    "community": "Community",
+    "gallery": "Gallery",
+    "characters": "Characters"
+  },
+  "about": {
+    "title": "About the Game",
+    "description1": "<strong>Tales of Bloomrise</strong> is a Brazilian pixel-art RPG that blends dungeon exploration with life in a village full of unique characters. You play as <strong>Rayy</strong>, an adventurer who protects Bloomrise and uncovers secrets hidden in nearby ruins.",
+    "description2": "By combining combat, puzzles, and NPC relationships, the game delivers a nostalgic and immersive experience for fans of Stardew Valley and classic Zelda.",
+    "updateTitle": "Community Updates",
+    "updateText": "Patch notes are now published on our Discord and Steam Community.<br><br><a href='https://discord.gg/4QSxuG7RK7' target='_blank' rel='noopener noreferrer'>Join Discord</a> | <a href='https://steamcommunity.com/app/4383630' target='_blank' rel='noopener noreferrer'>Open Steam Community</a>"
+  },
+  "trailer": {
+    "title": "Official Trailer",
+    "subtitle": "Watch the official trailer:"
+  },
+  "features": {
+    "title": "What awaits you in Bloomrise?",
+    "item1": {
+      "title": "🌱 Farming & Crafting",
+      "text": "Plant rare ingredients and craft your own equipment."
+    },
+    "item2": {
+      "title": "⚔️ Dynamic Combat",
+      "text": "Fight monsters with different weapons and abilities."
+    },
+    "item3": {
+      "title": "🏰 Endless Dungeons",
+      "text": "Explore procedurally generated dungeons. No two adventures are the same!"
+    },
+    "item4": {
+      "title": "🧑‍🤝‍🧑 Living Village",
+      "text": "Meet and interact with 10+ unique NPCs, each with their own story."
+    },
+    "item5": {
+      "title": "🌍 Open World",
+      "text": "Explore the village, forests, caves, and Bloomrise beach."
+    },
+    "item6": {
+      "title": "📜 Story & Secrets",
+      "text": "Uncover Bloomrise's story and discover secrets hidden in ancient ruins."
+    }
+  },
+  "testimonials": {
+    "title": "What players are saying"
+  },
+  "community": {
+    "title": "Join the Community",
+    "text": "Join our Discord to get first-hand news, share suggestions, and chat with other adventurers!",
+    "item1": "💬 Talk with the dev and other players",
+    "item2": "✨ See sneak peeks and updates",
+    "item3": "💡 Share feedback and suggestions",
+    "item4": "🎉 Be part of Bloomrise's story!",
+    "cta": "Join our Discord!"
+  },
+  "gallery": {
+    "title": "Screenshot Gallery",
+    "intro": "Gameplay moments, exploration, and village life. Click to enlarge."
+  },
+  "characters": {
+    "title": "Characters"
+  },
+  "developer": {
+    "title": "A Message from the Dev",
+    "text1": "Hi! I'm <strong class='bigApple'>José Minelli</strong>, the creator of Tales of Bloomrise. As a Brazilian indie developer, I'm dedicated to bringing you the best experience possible.",
+    "text2": "The game is constantly evolving, and community feedback is essential for its future. Thanks for playing, and I hope you enjoy the adventure. See you on Discord!"
+  },
+  "footer": {
+    "text": "© 2026 Whiskline Studio. All rights reserved."
+  },
+  "ui": {
+    "backToTop": "↑ Top"
+  },
+  "modal": {
+    "preview": "Gallery image preview",
+    "close": "Close modal",
+    "previous": "Previous image",
+    "next": "Next image",
+    "notFound": "Image not found"
+  }
+}

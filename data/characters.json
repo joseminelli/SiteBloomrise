@@ -2,61 +2,97 @@
   {
     "name": "Rayy",
     "image": "rayy.png",
-    "description": "Protagonista que protege Bloomrise."
+    "description": {
+      "pt-BR": "Protagonista que protege Bloomrise.",
+      "en-US": "The protagonist who protects Bloomrise."
+    }
   },
   {
     "name": "J. Minelli",
     "image": "minelli.png",
-    "description": "Comerciante e marido da Rayy. Fornece a espada inicial."
+    "description": {
+      "pt-BR": "Comerciante e marido da Rayy. Fornece a espada inicial.",
+      "en-US": "Rayy's husband and local merchant. He gives you the starting sword."
+    }
   },
   {
     "name": "Victor Bloom",
     "image": "victor.png",
-    "description": "Prefeito reservado e bibliotecário inteligente."
+    "description": {
+      "pt-BR": "Prefeito reservado e bibliotecário inteligente.",
+      "en-US": "A reserved mayor and brilliant librarian."
+    }
   },
   {
     "name": "Wade Woodson",
     "image": "wade.png",
-    "description": "Lenhador amigável que fornece madeira e troca itens."
+    "description": {
+      "pt-BR": "Lenhador amigável que fornece madeira e troca itens.",
+      "en-US": "A friendly woodcutter who provides wood and trades items."
+    }
   },
   {
     "name": "Darius Forge",
     "image": "darius.png",
-    "description": "Ferreiro habilidoso, responsável por armas e itens."
+    "description": {
+      "pt-BR": "Ferreiro habilidoso, responsável por armas e itens.",
+      "en-US": "A skilled blacksmith in charge of weapons and gear."
+    }
   },
   {
     "name": "Lupi Nuki",
     "image": "lupi.png",
-    "description": "Tanuki curioso e tagarela, fã de sementes estranhas. Melhor amigo de Rayy."
+    "description": {
+      "pt-BR": "Tanuki curioso e tagarela, fã de sementes estranhas. Melhor amigo de Rayy.",
+      "en-US": "A curious and chatty tanuki who loves strange seeds. Rayy's best friend."
+    }
   },
   {
     "name": "Selene Hawke",
     "image": "selene.png",
-    "description": "Grande ouvinte de todos da vila, casada com Marcus."
+    "description": {
+      "pt-BR": "Grande ouvinte de todos da vila, casada com Marcus.",
+      "en-US": "A great listener for everyone in the village, married to Marcus."
+    }
   },
   {
     "name": "Marcus Hawke",
     "image": "marcus.png",
-    "description": "Dono do bar local, casado com Selene."
+    "description": {
+      "pt-BR": "Dono do bar local, casado com Selene.",
+      "en-US": "Owner of the local tavern, married to Selene."
+    }
   },
   {
     "name": "Lyla Quinn",
     "image": "lyla.png",
-    "description": "Garota da cidade fascinada pela vida rural."
+    "description": {
+      "pt-BR": "Garota da cidade fascinada pela vida rural.",
+      "en-US": "A city girl fascinated by rural life."
+    }
   },
   {
     "name": "Jaden Carter",
     "image": "jaden.png",
-    "description": "Cantor animado com estilo único."
+    "description": {
+      "pt-BR": "Cantor animado com estilo único.",
+      "en-US": "An upbeat singer with a unique style."
+    }
   },
   {
     "name": "Milo Plume",
     "image": "milo.png",
-    "description": "Tucano calmo e observador, amigo do Lupi"
+    "description": {
+      "pt-BR": "Tucano calmo e observador, amigo do Lupi.",
+      "en-US": "A calm and observant toucan, friend of Lupi."
+    }
   },
   {
     "name": "Max Rook",
     "image": "max.png",
-    "description": "Antigo guerreiro obcecado por glória."
+    "description": {
+      "pt-BR": "Antigo guerreiro obcecado por glória.",
+      "en-US": "A former warrior obsessed with glory."
+    }
   }
 ]

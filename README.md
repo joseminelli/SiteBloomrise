@@ -26,8 +26,8 @@ O jogo, **Tales of Bloomrise**, é um RPG brasileiro em pixel art que combina ex
 O código deste site, embora simples, inclui alguns recursos interessantes:
 
 * **🎨 Design Temático:** A interface, botões e fontes foram escolhidos para refletir a estética pixel art e retrô do jogo.
-* **📜 Devlog Dinâmico:** As entradas do devlog são carregadas automaticamente de `data/devlogs.json` (quando existir conteúdo) e, em caso de ausência/erro, usam um fallback no `script.js`.
-* **🏷️ Tags Automáticas:** O script do devlog analisa o conteúdo de cada postagem e aplica tags (com ícones) automaticamente com base em palavras-chave.
+* **🌐 Localização integrada:** O site exibe um modal de idioma na primeira visita e salva a preferência do usuário para as próximas sessões.
+* **🗂️ Dados em JSON:** Galeria e personagens são carregados de arquivos JSON com suporte a múltiplos idiomas.
 * **🖼️ Galeria Modal:** Uma galeria de imagens leve com um modal de visualização que inclui navegação por setas, teclado (Esc, setas) e zoom por duplo clique.
 * **✨ Efeito Parallax:** Um efeito de parallax suave no background, controlado por `requestAnimationFrame` para melhor performance.
 * **📱 Responsivo:** Um menu lateral (`side-nav`) garante que o site seja fácil de navegar em dispositivos móveis.
@@ -57,29 +57,36 @@ Como este é um site estático, você não precisa de um servidor complexo.
 
 E é isso! Qualquer alteração feita nos arquivos `.html`, `.css` ou `.js` será refletida ao atualizar a página.
 
-## 📝 Devlogs automáticos
+## 📣 Atualizações do Jogo
 
-Você pode publicar devlogs sem editar o `script.js`, apenas alimentando o arquivo `data/devlogs.json`.
+As atualizações e patch notes oficiais são publicadas em:
 
-Formato esperado:
+* Discord da comunidade
+* Comunidade Steam de Tales of Bloomrise
 
-```json
-[
-  {
-    "date": "2026-04-06",
-    "title": "Atualização 1.5.0.0",
-    "content": "Novo bioma, melhorias de performance e correções de bugs."
-  }
-]
-```
+## 🌐 Localização (i18n)
 
-Regras:
+O site possui suporte a localização com seletor de idioma no topo.
 
-* `date`: string no formato `YYYY-MM-DD`
-* `title`: título da atualização
-* `content`: texto (aceita HTML simples como `<br>`)
+Arquivos de tradução:
 
-Se `data/devlogs.json` estiver vazio (`[]`) ou indisponível, o site usa automaticamente os devlogs fallback já existentes no `script.js`.
+* `data/i18n/pt-BR.json`
+* `data/i18n/en-US.json`
+
+Como funciona:
+
+* Na primeira visita, o usuário escolhe o idioma em um modal obrigatório.
+* Após a escolha inicial, o idioma pode ser alterado pelo seletor no rodapé.
+* A escolha manual fica salva no `localStorage`.
+* Textos estáticos do HTML (incluindo alguns atributos como `aria-label`) são atualizados automaticamente.
+* Conteúdos dinâmicos (ex.: `alt` da galeria e descrições de personagens) também mudam de idioma.
+
+Para adicionar um novo idioma:
+
+1. Crie um novo arquivo em `data/i18n/` (ex.: `es-ES.json`)
+2. Duplique a estrutura de chaves existente
+3. Adicione o idioma em `SUPPORTED_LOCALES` no `script.js`
+4. Inclua a nova opção no seletor `<select id="language-select-footer">` em `index.html`
 
 ## 🔗 Links do Jogo
 

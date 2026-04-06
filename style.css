@@ -1,11 +1,25 @@
-/* ------------------ Fonts & Base ------------------ */
-/* @import FOI REMOVIDO DAQUI */
-
+/* ==================== Fonts & Base ==================== */
 @font-face {
     font-family: "Big Apple";
     src: url("./Big Apple 3PM.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
+}
+
+:root {
+    --bg-overlay: rgba(15, 18, 28, 0.58);
+    --surface: rgba(77, 76, 76, 0.56);
+    --surface-strong: rgba(53, 52, 52, 0.62);
+    --surface-soft: rgba(255, 255, 255, 0.04);
+    --line: rgba(255, 255, 255, 0.16);
+    --line-strong: rgba(109, 223, 255, 0.6);
+    --text: #f2f7ff;
+    --text-muted: #bdd0eb;
+    --brand: #6df;
+    --brand-strong: #00cfff;
+    --radius: 14px;
+    --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.22);
+    --shadow-focus: 0 0 0 3px rgba(0, 207, 255, 0.3);
 }
 
 html {
@@ -15,14 +29,105 @@ html {
 body {
     margin: 0;
     font-family: "Lexend", "Montserrat", sans-serif;
-    color: #fff;
+    color: var(--text);
     line-height: 1.6;
     position: relative;
     overflow-x: hidden;
-    background-color: #1d1d2d;
+    background:
+        radial-gradient(circle at 15% 10%, rgba(0, 207, 255, 0.16), transparent 38%),
+        radial-gradient(circle at 85% 15%, rgba(184, 255, 116, 0.1), transparent 36%),
+        #111827;
 }
 
-/* ----------------- Trailer ------------------- */
+body.no-scroll {
+    overflow: hidden;
+}
+
+.language-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 12000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(5, 10, 20, 0.84);
+    backdrop-filter: blur(8px);
+}
+
+.language-gate.show {
+    display: flex;
+}
+
+.language-gate-panel {
+    width: min(92vw, 520px);
+    background: rgba(22, 28, 44, 0.94);
+    border: 1px solid var(--line-strong);
+    border-radius: 16px;
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.45);
+    padding: 24px;
+    text-align: center;
+}
+
+.language-gate-panel h2 {
+    margin: 0 0 10px;
+}
+
+.language-gate-panel p {
+    margin: 0 0 20px;
+    color: var(--text-muted);
+}
+
+.language-gate-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 12px;
+}
+
+.lang-option {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    font-family: "Lexend", "Montserrat", sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.lang-option:hover,
+.lang-option:focus-visible {
+    transform: translateY(-1px);
+    border-color: var(--line-strong);
+    background: rgba(109, 223, 255, 0.14);
+    outline: none;
+}
+
+.skip-link {
+    position: fixed;
+    left: 12px;
+    top: -100px;
+    z-index: 12000;
+    background: #0e1726;
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--line-strong);
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus-visible {
+    top: 12px;
+}
+
+#button-download-group{
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+/* ==================== Trailer ==================== */
 
 #trailer {
     width: 100%;
@@ -49,7 +154,7 @@ body {
     border-radius: 12px;
 }
 
-/* ------------------ Parallax ------------------ */
+/* ==================== Parallax ==================== */
 .parallax-bg {
     position: fixed;
     top: 0;
@@ -58,12 +163,9 @@ body {
     height: 200%;
     background: url("img/bg2.jpg") center top no-repeat;
     background-size: cover;
-    z-index: -1;
     pointer-events: none;
-    /* transition FOI REMOVIDA DAQUI */
 }
-
-/* ------------------ Header ------------------ */
+/* ==================== Header ==================== */
 header {
     position: relative;
     padding: 100px 20px 120px;
@@ -88,6 +190,114 @@ header>*:not(.blur-layer) {
     z-index: 1;
 }
 
+/* ==================== Rodapé ==================== */
+.footer-language {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.footer-language-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+}
+
+.language-dropdown {
+    position: relative;
+}
+
+.language-dropdown-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--line);
+    background: rgba(13, 19, 31, 0.72);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 8px 14px 8px 16px;
+    font-size: 0.92rem;
+    line-height: 1.2;
+    font-family: "Lexend", "Montserrat", sans-serif;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.language-dropdown-button:hover {
+    border-color: var(--line-strong);
+    background-color: rgba(109, 223, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+.language-dropdown-button:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+}
+
+.language-dropdown-arrow {
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-2px) rotate(45deg);
+    transition: transform 0.2s ease;
+}
+
+.language-dropdown.open .language-dropdown-arrow {
+    transform: translateY(2px) rotate(225deg);
+}
+
+.language-dropdown-menu {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 10px);
+    min-width: 220px;
+    padding: 8px;
+    border-radius: 16px;
+    border: 1px solid var(--line-strong);
+    background: rgba(9, 16, 28, 0.96);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+    display: grid;
+    gap: 8px;
+    z-index: 1000;
+}
+
+.language-dropdown-option {
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    text-align: left;
+    padding: 10px 12px;
+    font-family: "Lexend", "Montserrat", sans-serif;
+    cursor: pointer;
+    transition: transform 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.language-dropdown-option:hover,
+.language-dropdown-option:focus-visible {
+    outline: none;
+    transform: translateY(-1px);
+    border-color: var(--line-strong);
+    background: rgba(109, 223, 255, 0.16);
+}
+
+.language-dropdown-option.active {
+    background: linear-gradient(180deg, rgba(109, 223, 255, 0.22), rgba(109, 223, 255, 0.1));
+    border-color: rgba(109, 223, 255, 0.5);
+}
+
+.language-dropdown[hidden],
+.language-dropdown-menu[hidden] {
+    display: none !important;
+}
+
 .logo {
     display: block;
     margin: 0 auto;
@@ -105,10 +315,30 @@ header h1 {
 
 header p {
     font-size: 1.2em;
-    color: #ccc;
+    color: var(--text-muted);
 }
 
-/* ------------------ Navegação (Desktop) ------------------ */
+.hero-highlights {
+    margin: 16px auto 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 820px;
+}
+
+.hero-highlights li {
+    background: var(--surface-soft);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.94);
+}
+
+/* ==================== Navegação (Desktop) ==================== */
 nav {
     position: sticky;
     top: 0;
@@ -133,18 +363,13 @@ nav {
     transition: all 0.2s ease;
 }
 
-/* Efeito quando fixado */
 .nav-blur-layer.fixed-nav {
     opacity: 1;
 }
 
-/* Links continuam iguais */
 nav a {
     margin: 0 5px;
-    /* color: rgb(255, 255, 255); */
-    /* background: rgba(29, 29, 45, 0.55); */
     text-decoration: none;
-    /* font-weight: 600; */
     font-size: 1.1em;
     padding: 8px 12px;
     border-radius: 6px;
@@ -154,12 +379,17 @@ nav a {
 
 nav a:hover,
 nav a:focus {
-    /* background-color: #6df; */
-    /* color: #000; */
     outline: none;
 }
 
-/* ------------------ Botão e Menu Mobile ------------------ */
+#main-nav a.active,
+.side-nav a.active {
+    color: #dff9ff;
+    transform: translateY(-1px);
+    filter: drop-shadow(0 0 10px rgba(109, 223, 255, 0.4));
+}
+
+/* ==================== Botão e Menu Mobile ==================== */
 #nav-bur-mobile,
 .menu-button,
 .side-nav,
@@ -174,8 +404,6 @@ nav a:focus {
 }
 
 @media (max-width: 768px) {
-    /* ------------------ Sobre ------------------ */
-
     .trailer iframe {
         width: 100%;
         height: 200px;
@@ -218,7 +446,6 @@ nav a:focus {
         position: fixed;
         top: 20px;
         left: 20px;
-        src: url("img/hud/btn_menu.png");
         z-index: 100;
         background-color: transparent;
         border: none;
@@ -331,7 +558,6 @@ nav a:focus {
 .hud-button-mid:hover,
 .hud-button-big:hover {
     transform: translateY(-2px);
-    /* Leve pulo */
     filter: brightness(0.9);
 }
 
@@ -343,21 +569,20 @@ nav a:focus {
 #main-nav a:hover,
 #main-nav a:focus {
     transform: translateY(-2px);
-    /* Leve pulo */
     outline: none;
 }
 
-/* ------------------ Conteúdo Principal ------------------ */
+/* ==================== Conteúdo Principal ==================== */
 .content {
     position: relative;
     z-index: 1;
-    background-color: rgba(30, 30, 47, 0.5);
+    background-color: var(--bg-overlay);
 }
 
 .section {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 0 20px;
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 clamp(16px, 2vw, 26px);
 }
 
 .button {
@@ -370,7 +595,7 @@ nav a:focus {
     font-weight: bold;
 }
 
-/* ------------------ Galeria ------------------ */
+/* ==================== Galeria ==================== */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -424,7 +649,7 @@ nav a:focus {
     outline-offset: 2px;
 }
 
-/* ------------------ Personagens ------------------ */
+/* ==================== Personagens ==================== */
 .characters {
     display: flex;
     max-height: 450px;
@@ -432,6 +657,7 @@ nav a:focus {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    padding-right: 4px;
 }
 
 .character-card {
@@ -444,18 +670,22 @@ nav a:focus {
 .character-card img {
     image-rendering: pixelated;
     image-rendering: crisp-edges;
-    /* para alguns navegadores */
     width: 192px;
-    /* 48px * 4x aumento, por exemplo */
     height: auto;
-    /* mantém proporção */
 }
 
-.character-card,
-.devlog-entry {
-    background-color: rgb(53 52 52 / 50%);
+.character-card {
+    background-color: var(--surface-strong);
     position: relative;
     z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.22s ease, border-color 0.22s ease;
+}
+
+.character-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(109, 223, 255, 0.42);
 }
 
 .character-card h3 {
@@ -467,156 +697,28 @@ nav a:focus {
     color: #fff;
 }
 
-.character-card h3,
-.devlog-entry h3 {
+.character-card h3 {
     background-color: rgb(46 46 46 / 50%);
     padding: 10px;
     border-radius: 8px;
 }
-
-.devlog-entry h3 {
-    width: fit-content !important;
-}
-
-/* ------------------ Devlog com Scroll ------------------ */
-#devlog-container {
-    max-height: 350px;
-    overflow-y: auto;
-    padding-right: 8px;
-    scroll-behavior: smooth;
-}
-
-.devlog-tag {
-    display: inline-block;
-    font-family: "Big Apple", monospace;
-    background-color: #aaa;
-    color: white;
-    font-size: 0.75rem;
-    font-weight: 500;
-    padding: 3px 8px;
-    border-radius: 14px;
-    user-select: none;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 6px;
-}
-
-/* 🌍 Mundo */
-.tag-mundo {
-    background-color: #f2c7c7 !important;
-    /* rosa pastel claro */
-    color: #9e4a4a !important;
-}
-
-/* ⚔️ Combate */
-.tag-combate {
-    background-color: #c7f2c7 !important;
-    /* verde pastel claro */
-    color: #4a9e4a !important;
-}
-
-/* 📜 Missão */
-.tag-missão {
-    background-color: #dcefc7 !important;
-    /* verde oliva pastel */
-    color: #4a6f35 !important;
-}
-
-/* 💬 História */
-.tag-história {
-    background-color: #c7d7f2 !important;
-    /* azul pastel claro */
-    color: #315a9e !important;
-}
-
-/* 🧑 Personagem */
-.tag-personagem {
-    background-color: #f2c7f2 !important;
-    /* rosa/lilás pastel */
-    color: #9e4a9e !important;
-}
-
-/* ⚙️ Sistema */
-.tag-sistema {
-    background-color: #c7d7ef !important;
-    /* azul pastel mais neutro */
-    color: #315a9e !important;
-}
-
-/* 🐛 Bug */
-.tag-bug {
-    background-color: #f2d6d6 !important;
-    /* vermelho pastel claro */
-    color: #9e4a4a !important;
-}
-
-/* 🏰 Dungeon */
-.tag-dungeon {
-    background-color: #d6c7f2 !important;
-    /* roxo pastel claro */
-    color: #6f4a9e !important;
-}
-
-/* ⚡ Performance */
-.tag-performance {
-    background-color: #e2f2c7 !important;
-    /* verde amarelado pastel */
-    color: #6f9e31 !important;
-}
-
-/* 🌦️ Clima */
-.tag-clima {
-    background-color: #c7ecf2 !important;
-    /* azul/ciano pastel */
-    color: #317f9e !important;
-}
-
-/* 🎨 Personalização */
-.tag-personalização {
-    background-color: #f2e0c7 !important;
-    /* bege/laranja pastel */
-    color: #9e6f31 !important;
-}
-
-/* 🌐 Tradução */
-.tag-tradução {
-    background-color: #e0c7f2 !important;
-    /* lilás pastel */
-    color: #6f319e !important;
-}
-
-/* 🌿 Geral (fallback) */
-.tag-geral {
-    background-color: #d6f2d6 !important;
-    /* verde suave */
-    color: #317f31 !important;
-}
-
-/* 🟨 Atualizações */
-.tag-atualizacao {
-    background-color: #f9ebc7 !important;
-    /* amarelo pastel */
-    color: #9e8a31 !important;
-}
-
-#devlog,
 #personagens,
 #comunidade,
 #sobre,
 #galeria,
-.devlog-entry,
 #recursos,
 #depoimentos,
 #sobre-dev {
-    background-color: rgb(77 76 76 / 50%);
-    border-radius: 12px;
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
     backdrop-filter: blur(8px);
     padding: 20px;
     margin-bottom: 15px;
+    box-shadow: var(--shadow-soft);
 }
 
-/* ------------------ Image Modal -------------*/
-/* Modal - fundo escuro e centralização */
+/* ==================== Image Modal ==================== */
 .image-modal {
     display: none;
     visibility: hidden;
@@ -636,16 +738,13 @@ nav a:focus {
     will-change: opacity;
 }
 
-/* Mostrar com fade */
 .image-modal.show {
     display: flex;
-    /* ou block */
     visibility: visible;
     pointer-events: auto;
     opacity: 1;
 }
 
-/* Conteúdo da imagem com animação zoom */
 .image-modal .modal-content {
     max-width: 90%;
     max-height: 82vh;
@@ -657,7 +756,6 @@ nav a:focus {
     user-select: none;
 }
 
-/* Quando zoom ativado */
 .image-modal .modal-content.zoomed {
     cursor: zoom-out;
     transform: scale(2);
@@ -681,7 +779,6 @@ nav a:focus {
     backdrop-filter: blur(4px);
 }
 
-/* Botão fechar */
 .modal-close {
     background: none;
     border: none;
@@ -699,7 +796,6 @@ nav a:focus {
     transition: color 0.3s ease;
 }
 
-/* Botões de navegação */
 .modal-nav {
     position: fixed;
     top: 50%;
@@ -711,7 +807,6 @@ nav a:focus {
     z-index: 10000;
     outline: none;
     width: 64px;
-    /* ou o tamanho da imagem */
     height: 64px;
 }
 
@@ -741,15 +836,13 @@ nav a:focus {
     right: 20px;
 }
 
-/* Esconder botão quando não tiver próxima/imagem */
 .modal-nav.disabled {
     opacity: 0.3;
     pointer-events: none;
 }
 
-/* ------------------ Mácaras ------------------ */
+/* ==================== Mácaras ==================== */
 
-/* Máscara quando estiver rolando e não estiver no topo */
 .mask-top {
     -webkit-mask-image: linear-gradient(to bottom,
             transparent,
@@ -758,13 +851,11 @@ nav a:focus {
     mask-image: linear-gradient(to bottom, transparent, black 5%, black 100%);
 }
 
-/* Máscara quando estiver rolando e não estiver no fim */
 .mask-bottom {
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 95%, transparent);
     mask-image: linear-gradient(to bottom, black 0%, black 95%, transparent);
 }
 
-/* Quando as duas máscaras estiverem aplicadas, terá fade nas duas bordas */
 .mask-top.mask-bottom {
     -webkit-mask-image: linear-gradient(to bottom,
             transparent,
@@ -778,7 +869,6 @@ nav a:focus {
             transparent);
 }
 
-/* Sem máscara (scroll no topo e no fim) */
 .no-mask {
     -webkit-mask-image: none;
     mask-image: none;
@@ -801,8 +891,6 @@ nav a:focus {
     color: #fff;
 }
 
-/* ------------------ Tipografia ------------------ */
-.devlog-entry h3,
 section h2 {
     letter-spacing: 2px;
     font-weight: 500;
@@ -822,21 +910,36 @@ footer {
     font-family: "Lexend", "Montserrat", sans-serif;
 }
 
-/* ------------------ Rodapé ------------------ */
 footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px 18px;
     text-align: center;
     padding: 20px;
     color: #ffffff;
-    inset: 0;
     background: rgba(29, 29, 45, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    mask-image: linear-gradient(to top, black 20%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to top, black 20%, transparent 100%);
+    z-index: 0;
+    overflow: visible;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0) 100%);
+    pointer-events: none;
     z-index: 0;
 }
 
-/* ---------------- Pixel art Buttons */
+footer > * {
+    position: relative;
+    z-index: 1;
+}
 
 .hud-button,
 .menu-button img {
@@ -870,7 +973,6 @@ footer {
     text-align: center;
     white-space: nowrap;
     width: auto;
-    /* min-width: 150px; */
 }
 
 .centered-button {
@@ -906,7 +1008,6 @@ footer {
     white-space: nowrap;
     width: auto;
     text-shadow: none !important;
-    /* min-width: 150px; */
 }
 
 .hud-button-small {
@@ -921,12 +1022,14 @@ footer {
     background-image: url("img/hud/btn_play_big.png");
 }
 
-/* ---------------- scrollbar ------------------ */
-/* Scroll personalizado para desktop */
-@media (min-width: 1285p) {
+@media (min-width: 1285px) {
     .parallax-bg {
         background-position: center -600px;
     }
+}
+
+main section[id] {
+    scroll-margin-top: 90px;
 }
 
 @media (min-width: 768px) {
@@ -960,38 +1063,34 @@ footer {
     }
 }
 
-/* ------------------ NOVOS ESTILOS ------------------ */
-
-/* Teaser do Devlog na Seção Sobre */
-.devlog-teaser {
+.updates-teaser {
     background-color: rgb(51 51 78 / 70%);
     border-radius: 8px;
     padding: 15px;
     margin-top: 25px;
 }
 
-.devlog-teaser h3 {
+.updates-teaser h3 {
     font-family: "Big Apple", sans-serif;
     letter-spacing: 2px;
     color: #6df;
     margin-top: 0;
 }
 
-.devlog-teaser p {
+.updates-teaser p {
     margin-bottom: 0;
 }
 
-.devlog-teaser a {
+.updates-teaser a {
     color: #89e0ff;
     font-weight: bold;
     text-decoration: none;
 }
 
-.devlog-teaser a:hover {
+.updates-teaser a:hover {
     text-decoration: underline;
 }
 
-/* Grid de Recursos (Features) */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1012,7 +1111,6 @@ footer {
     letter-spacing: 2px;
 }
 
-/* Seção de Depoimentos (Testimonials) */
 .testimonials-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -1043,7 +1141,6 @@ footer {
     mask-image: none;
 }
 
-/* Seção Sobre o Dev */
 .dev-profile {
     display: flex;
     align-items: center;
@@ -1051,6 +1148,7 @@ footer {
     background-color: rgb(53 52 52 / 50%);
     padding: 20px;
     border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .dev-profile img {
@@ -1066,10 +1164,82 @@ footer {
     margin: 0;
 }
 
-/* Ajuste mobile para o perfil do dev */
 @media (max-width: 600px) {
     .dev-profile {
         flex-direction: column;
         text-align: center;
+    }
+
+    .hero-highlights {
+        gap: 8px;
+    }
+
+    .hero-highlights li {
+        font-size: 0.84rem;
+    }
+
+    .footer-language {
+        position: static;
+        width: fit-content;
+        margin: 0 auto 8px;
+    }
+
+    .language-dropdown-menu {
+        right: 50%;
+        transform: translateX(50%);
+        min-width: min(86vw, 240px);
+    }
+
+    .language-gate-actions {
+        grid-template-columns: 1fr;
+    }
+}
+
+a:focus-visible,
+button:focus-visible,
+.hud-button-small:focus-visible,
+.hud-button-mid:focus-visible,
+.hud-button-big:focus-visible,
+.gallery-item:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+}
+
+.back-to-top {
+    position: fixed;
+    right: 18px;
+    bottom: 20px;
+    z-index: 9990;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    padding: 10px 14px;
+    background: rgba(9, 16, 28, 0.82);
+    color: #e7f9ff;
+    font-family: "Lexend", "Montserrat", sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.back-to-top:hover {
+    background: rgba(0, 207, 255, 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
     }
 }

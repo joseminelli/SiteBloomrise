@@ -1,34 +1,58 @@
 [
   {
     "src": "screenshot01.jpg",
-    "alt": "Rayy em frente à sua casa, em uma manhã ensolarada na vila de Bloomrise."
+    "alt": {
+      "pt-BR": "Rayy em frente à sua casa, em uma manhã ensolarada na vila de Bloomrise.",
+      "en-US": "Rayy standing in front of her house on a sunny morning in Bloomrise village."
+    }
   },
   {
     "src": "screenshot02.jpg",
-    "alt": "Rayy caminhando pela praia enquanto o cenário costeiro de Bloomrise ganha destaque."
+    "alt": {
+      "pt-BR": "Rayy caminhando pela praia enquanto o cenário costeiro de Bloomrise ganha destaque.",
+      "en-US": "Rayy walking along the beach while Bloomrise's coastal scenery takes center stage."
+    }
   },
   {
     "src": "screenshot03.jpg",
-    "alt": "Combate intenso dentro da dungeon, com inimigos pressionando a exploração."
+    "alt": {
+      "pt-BR": "Combate intenso dentro da dungeon, com inimigos pressionando a exploração.",
+      "en-US": "Intense combat inside the dungeon, with enemies pressuring the exploration route."
+    }
   },
   {
     "src": "screenshot04.jpg",
-    "alt": "Rayy em diálogo com Lupi durante uma interação importante na vila."
+    "alt": {
+      "pt-BR": "Rayy em diálogo com Lupi durante uma interação importante na vila.",
+      "en-US": "Rayy in dialogue with Lupi during an important village interaction."
+    }
   },
   {
     "src": "screenshot05.jpg",
-    "alt": "Cena de pesca à noite na ponte da vila, com atmosfera calma e iluminação suave."
+    "alt": {
+      "pt-BR": "Cena de pesca à noite na ponte da vila, com atmosfera calma e iluminação suave.",
+      "en-US": "Night fishing scene on the village bridge, with a calm mood and soft lighting."
+    }
   },
   {
     "src": "screenshot06.jpg",
-    "alt": "Rayy no bar da vila ao lado de outros NPCs, em um momento social do jogo."
+    "alt": {
+      "pt-BR": "Rayy no bar da vila ao lado de outros NPCs, em um momento social do jogo.",
+      "en-US": "Rayy at the village bar with other NPCs, in a social moment of the game."
+    }
   },
   {
     "src": "screenshot07.jpg",
-    "alt": "Novo confronto de combate mostrando ação rápida e movimentação em tempo real."
+    "alt": {
+      "pt-BR": "Novo confronto de combate mostrando ação rápida e movimentação em tempo real.",
+      "en-US": "Another combat encounter showcasing fast action and real-time movement."
+    }
   },
   {
     "src": "screenshot08.jpg",
-    "alt": "Rayy dentro de sua casa, em um ambiente interno aconchegante de Bloomrise."
+    "alt": {
+      "pt-BR": "Rayy dentro de sua casa, em um ambiente interno aconchegante de Bloomrise.",
+      "en-US": "Rayy inside her home, in a cozy indoor Bloomrise environment."
+    }
   }
 ]
