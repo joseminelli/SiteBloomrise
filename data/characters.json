@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Rayy",
+    "image": "rayy.png",
+    "description": "Protagonista que protege Bloomrise."
+  },
+  {
+    "name": "J. Minelli",
+    "image": "minelli.png",
+    "description": "Comerciante e marido da Rayy. Fornece a espada inicial."
+  },
+  {
+    "name": "Victor Bloom",
+    "image": "victor.png",
+    "description": "Prefeito reservado e bibliotecário inteligente."
+  },
+  {
+    "name": "Wade Woodson",
+    "image": "wade.png",
+    "description": "Lenhador amigável que fornece madeira e troca itens."
+  },
+  {
+    "name": "Darius Forge",
+    "image": "darius.png",
+    "description": "Ferreiro habilidoso, responsável por armas e itens."
+  },
+  {
+    "name": "Lupi Nuki",
+    "image": "lupi.png",
+    "description": "Tanuki curioso e tagarela, fã de sementes estranhas. Melhor amigo de Rayy."
+  },
+  {
+    "name": "Selene Hawke",
+    "image": "selene.png",
+    "description": "Grande ouvinte de todos da vila, casada com Marcus."
+  },
+  {
+    "name": "Marcus Hawke",
+    "image": "marcus.png",
+    "description": "Dono do bar local, casado com Selene."
+  },
+  {
+    "name": "Lyla Quinn",
+    "image": "lyla.png",
+    "description": "Garota da cidade fascinada pela vida rural."
+  },
+  {
+    "name": "Jaden Carter",
+    "image": "jaden.png",
+    "description": "Cantor animado com estilo único."
+  },
+  {
+    "name": "Milo Plume",
+    "image": "milo.png",
+    "description": "Tucano calmo e observador, amigo do Lupi"
+  },
+  {
+    "name": "Max Rook",
+    "image": "max.png",
+    "description": "Antigo guerreiro obcecado por glória."
+  }
+]

@@ -26,7 +26,7 @@ O jogo, **Tales of Bloomrise**, é um RPG brasileiro em pixel art que combina ex
 O código deste site, embora simples, inclui alguns recursos interessantes:
 
 * **🎨 Design Temático:** A interface, botões e fontes foram escolhidos para refletir a estética pixel art e retrô do jogo.
-* **📜 Devlog Dinâmico:** As entradas do devlog são geradas automaticamente a partir de um array de objetos `devlogData` no `script.js`. Isso facilita a adição de novas postagens sem precisar escrever HTML.
+* **📜 Devlog Dinâmico:** As entradas do devlog são carregadas automaticamente de `data/devlogs.json` (quando existir conteúdo) e, em caso de ausência/erro, usam um fallback no `script.js`.
 * **🏷️ Tags Automáticas:** O script do devlog analisa o conteúdo de cada postagem e aplica tags (com ícones) automaticamente com base em palavras-chave.
 * **🖼️ Galeria Modal:** Uma galeria de imagens leve com um modal de visualização que inclui navegação por setas, teclado (Esc, setas) e zoom por duplo clique.
 * **✨ Efeito Parallax:** Um efeito de parallax suave no background, controlado por `requestAnimationFrame` para melhor performance.
@@ -56,6 +56,30 @@ Como este é um site estático, você não precisa de um servidor complexo.
 3.  Abra o arquivo `index.html` diretamente no seu navegador de preferência.
 
 E é isso! Qualquer alteração feita nos arquivos `.html`, `.css` ou `.js` será refletida ao atualizar a página.
+
+## 📝 Devlogs automáticos
+
+Você pode publicar devlogs sem editar o `script.js`, apenas alimentando o arquivo `data/devlogs.json`.
+
+Formato esperado:
+
+```json
+[
+  {
+    "date": "2026-04-06",
+    "title": "Atualização 1.5.0.0",
+    "content": "Novo bioma, melhorias de performance e correções de bugs."
+  }
+]
+```
+
+Regras:
+
+* `date`: string no formato `YYYY-MM-DD`
+* `title`: título da atualização
+* `content`: texto (aceita HTML simples como `<br>`)
+
+Se `data/devlogs.json` estiver vazio (`[]`) ou indisponível, o site usa automaticamente os devlogs fallback já existentes no `script.js`.
 
 ## 🔗 Links do Jogo
 

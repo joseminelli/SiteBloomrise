@@ -2,572 +2,46 @@
 const showTrailer = true;
 let isAnimating = false;
 
-// ==== Dados do Devlog ====
-const devlogData = [
-  {
-    date: "2025-11-03",
-    title: "Atualização 1.4.3.0: A Praia Chegou! (Pesca e Detector de Metais)",
-    content: `
-      Preparem-se para sentir a brisa do mar! Esta atualização traz uma área totalmente nova para explorar e novas formas de jogar.<br><br>
-      
-      <strong>🌊 A Nova Área da Praia!</strong><br>
-      ● A área da praia foi desbloqueada! Explore as areias quentes, encontre novas paisagens e descubra os segredos que o oceano guarda.<br><br>
-      
-      <strong>🎣 Novas Atividades na Praia!</strong><br>
-      ● <strong>Novo Sistema de Pesca:</strong> Pegue sua vara de pesca! Novos peixes podem ser encontrados nas águas da praia, além de rios e lagos.<br>
-      ● <strong>Detector de Metais:</strong> Há tesouros escondidos sob a areia! Use a nova ferramenta para encontrar itens perdidos e materiais valiosos.<br>
-      ● <strong>Novas Receitas de Crafting:</strong> Descubra novos pratos e itens úteis para fabricar com seus novos achados!<br><br>
-      
-      <strong>✨ Melhorias e Correções</strong><br>
-      ● Ajustes de desempenho para garantir uma experiência mais suave na vila e na nova área da praia.<br>
-      ● Vários bugs menores e problemas de estabilidade relatados pela comunidade foram corrigidos.
-    `
-  },
-  {
-    date: "2025-10-27",
-    title: "Atualização 1.4.2.0: Controles de Teclado no PC e Melhorias!",
-    content: `
-      Esta atualização traz melhorias focadas na experiência do PC e correções importantes!<br><br>
-      
-      <strong>🖥️ Melhorias para Google Play Games no PC</strong><br>
-      ● <strong>Novos Controles de Teclado:</strong> Implementamos controles mais intuitivos!<br>
-      &nbsp;&nbsp;&nbsp;○ <strong>WASD:</strong> Movimentação do personagem.<br>
-      &nbsp;&nbsp;&nbsp;○ <strong>Enter:</strong> Usar a arma ou ferramenta equipada.<br>
-      &nbsp;&nbsp;&nbsp;○ <strong>E:</strong> Abrir/Fechar o inventário.<br>
-      &nbsp;&nbsp;&nbsp;○ <strong>Esc:</strong> Abrir/Fechar o menu de pausa.<br>
-      &nbsp;&nbsp;&nbsp;○ <strong>Números (0-9):</strong> Usar o item na barra de ferramentas.<br><br>
-      
-      <strong>🧑‍🤝‍🧑 Interação com Lojistas Aprimorada</strong><br>
-      ● Agora ficou mais fácil conversar! Clique diretamente no NPC que está atendendo na loja para iniciar um diálogo. Clicar na área ao redor dele continua abrindo a interface da loja.<br><br>
-      
-      <strong>🐛 Correção de Bugs</strong><br>
-      ● Resolvemos vários bugs menores reportados pela comunidade para deixar a experiência mais fluida.
-    `
-  },
-  {
-    date: "2025-10-25",
-    title: "Atualização 1.4.1.0: A Biblioteca Renascida e Mais Lore!",
-    content: `
-      Preparem-se para mergulhar ainda mais fundo no nosso mundo com uma atualização recheada de novidades, lore e melhorias!<br><br>
-      
-      <strong>📚 A Biblioteca Renascida!</strong><br>
-      ● O interior da biblioteca do Victor foi completamente remodelado! Dê uma olhada no novo espaço, mais aconchegante e cheio de conhecimento.<br><br>
-      
-      <strong>📖 Novos Livros para Colecionar e Ler</strong><br>
-      ● <strong>Guia do Jardineiro:</strong> Aprenda os segredos do plantio e descubra informações sobre cada planta (Gerado automaticamente!).<br>
-      ● <strong>Diário da Lyla:</strong> Descubra os pensamentos (e fofocas!) da nossa querida fashionista sobre a vida em Bloomrise.<br>
-      ● <strong>Guia de Crafting:</strong> Todas as receitas do jogo, onde fazê-las e o tempo necessário (Gerado automaticamente!).<br>
-      ● <strong>Bestiário de Bloomrise:</strong> Registre os monstros que você derrotar e aprenda mais sobre eles (Automático com descoberta!).<br>
-      ● <strong>Crônicas de Rook:</strong> Descubra o passado aventureiro do Max antes dele ajudar a fundar a vila!<br>
-      ● <strong>Tutoriais Integrados:</strong> Muitos desses livros agora servem como guias úteis para as mecânicas do jogo!<br><br>
-      
-      <strong>💬 Mais Conversas na Vila</strong><br>
-      ● Adicionamos novos diálogos para os NPCs! Descubra mais sobre a personalidade de cada um.<br><br>
-      
-      <strong>⚡ Fazenda Mais Leve!</strong><br>
-      ● Corrigimos um lag significativo que acontecia com muitas plantações ativas. Agora sua fazenda pode crescer sem pesar no desempenho!<br><br>
-      
-      <strong>🖥️ Melhorias para PC (Google Play Games)</strong><br>
-      ● A interface de usuário recebeu melhorias específicas para quem joga no Google Play Games para PC.<br>
-      ● Mais otimizações e melhorias para a versão de PC estão a caminho!
-    `
-  },
-  {
-    date: "2025-10-21",
-    title: "Atualização 1.4.0.0: Cultivo, Crafting e Expansão do Mundo!",
-    content: `
-      Grandes novidades e melhorias chegaram! Veja o que mudou:<br><br>
-      
-      <strong>🌱 Cultivo & Novo Sistema de Crafting</strong><br>
-      ● <strong>Cultivo:</strong> Plante ingredientes raros! Compre sementes na Loja de Flores e use Pacotes de Terra (comprados ou feitos na Composteira). Suas plantas crescem offline!<br>
-      ● <strong>Crafting com Tempo:</strong> Itens agora levam tempo para serem criados em Mesas de Trabalho (Bancada, Forja, Bigorna) e progridem offline. Colete quando prontos!<br>
-      ● <strong>Novos Equipamentos:</strong> Crie Espadas, Machados e Picaretas (básicos na Bancada da Rayy, melhorados na Bigorna do Ferreiro).<br>
-      ● <strong>Processamento de Minério:</strong> Ferro e Ouro agora são minérios brutos. Processe-os na Forja!<br><br>
-      
-      <strong>🗺️ Expansão do Mundo & Novos Desafios</strong><br>
-      ● <strong>Caverna de Minérios:</strong> Entrada desbloqueável! Explore suas profundezas.<br>
-      ● <strong>Ponte Quebrada:</strong> Conserte a ponte dentro da caverna para acessar uma nova área mística.<br>
-      ● <strong>Novos Recursos:</strong> Encontre Chromita (raríssimo!) e Cogumelos Místicos na área mística.<br>
-      ● <strong>Mapa Expandido:</strong> A região <strong>leste</strong> foi aberta! (Mais conteúdo em breve).<br>
-      ● <strong>Novas Missões:</strong> Converse com Lupi, Selene e Lyla para novas aventuras.<br><br>
-      
-      <strong>✨ NPCs & Melhorias Gerais</strong><br>
-      ● <strong>NPCs Aprimorados:</strong> Comportamento mais natural e agora interagem entre si!<br>
-      ● <strong>Otimizações:</strong> Melhorias significativas de performance e fluidez, especialmente no mobile.<br>
-      ● <strong>HUD Melhorada:</strong> Ajustes na interface.<br>
-      ● <strong>Novas Opções Gráficas:</strong><br>
-         ○ <strong>FPS Alvo:</strong> Escolha entre 30, 60 (Padrão) ou 120 FPS.<br>
-         ○ <strong>Animações Detalhadas:</strong> Ativa/desativa animações extras do ambiente.<br>
-      ● <strong>Correção de Bugs:</strong> Várias correções baseadas no feedback da comunidade.<br><br>
-      
-      <strong>🎃 Evento de Halloween!</strong><br>
-      ● <strong>Decoração Assustadora:</strong> O mundo está decorado para o Halloween (evento por tempo limitado).
-    `,
-  },
-  {
-    date: "2025-08-02",
-    title: "Detecção automática de idiomas e Lançamento Global",
-    content:
-      "Idioma do jogo agora é detectado automáticamente pelo sistema, possibilitando que pessoas fora do Brasil aproveitem Bloomrise!",
-  },
-  {
-    date: "2025-07-28",
-    title: "Baú da Rayy",
-    content: "Adicionado baú na casa da Rayy para guardar itens importantes",
-  },
-  {
-    date: "2025-07-23",
-    title: "Lançamento oficial!",
-    content: "Lançamento oficial de Bloomrise na PlayStore!",
-  },
-  {
-    date: "2025-08-05",
-    title: "Atualização 1.1.3",
-    content: `
-      ● Adicionado clima chuvoso e de ventania (não afetam a gameplay... ainda!) <br>
-      ○ Corrigido problema dos NPCs travarem em objetos <br>
-      ○ Adicionado novos idiomas, em detecção automática <br>
-      ○ Correção de bugs
-    `,
-  },
-  {
-    date: "2025-08-11",
-    title: "Atualização 1.1.4",
-    content: `
-      ● Nova bússola adicionada para ajudar na exploração — quanto mais perto do caminho certo, mais fácil será notar o destino. <br>
-      ○ Adicionado clima chuvoso e ventania (não afetam a gameplay… ainda!) <br>
-      ○ Correção de bugs
-    `,
-  },
-  {
-    date: "2025-08-14",
-    title: "Atualização 1.1.6",
-    content: `
-      - Novo alerta ao tentar interagir com lojas fora do horário de funcionamento. <br>
-      - Novos marcadores da bússola adicionados em áreas internas. <br>
-      - Textos traduzidos que anteriormente não estavam localizados. <br>
-      - Ícones da interface aprimorados, deixando a navegação mais clara e agradável. <br>
+// ==== Dados carregados de JSON ==== 
+let fallbackDevlogData = [];
+let TAG_MAP = [];
+let galleryData = [];
+let charactersData = [];
 
-    `,
-  },
-  {
-    date: "2025-08-18",
-    title: "Atualização 1.1.6 Hotfix",
-    content: `
-      - Correção da interação com a loja da forja e do bar <br>
-      - Correção de área de toque das interfaces
-    `,
-  },
-  {
-    date: "2025-08-28",
-    title: "Atualização 1.2.0",
-    content: `
-      - Novos Inimigos: Cobras, Morcegos e Baby Slimes foram adicionados ao mundo. <br>
-      - IA Melhorada: O Zumbi agora possui um ataque de "agarrão", e o combate em grupo está mais tático. <br>
-      - Visuais Atualizados: As roupas de vários NPCs foram redesenhadas.
-    `,
-  },
-  {
-    date: "2025-09-17",
-    title: "Atualização 1.3.0",
-    content: `
-      - Dungeons Geradas Aleatoriamente com rejogabilidade infinita. <br>
-      - Novo Item - Amuleto de Viagem. <br>
-      - Início da Personalização de Lares (mesa e cadeira reposicionáveis). <br>
-      - Melhorias no Combate com ajustes de timing.
-    `,
-  },
-  {
-    date: "2025-09-26",
-    title: "Atualização 1.3.2.3",
-    content: `
-      - Dungeons Infinitas com novos layouts a cada entrada. <br>
-      - Geladeira: Novo item para armazenar comidas e bebidas. <br>
-      - Decoração (Em Breve): Mais itens coletáveis e posicionáveis no mundo (sem salvamento ainda). <br>
-      - Google Play Games: Conquistas adicionadas para todas as missões do guia + leaderboard de monstros derrotados.
-    `,
-  },
-  {
-    date: "2025-09-29",
-    title: "Atualização 1.3.5.0",
-    content: `
-      - Melhoria na Geração Procedural das Dungeons. <br>
-      - Melhoria de Performance. <br>
-      - Correções nos NPCs em interiores. <br>
-      - Balanceamento dos Upgrades. <br>
-      - Correção na Área de Ataque das Armas. <br>
-      - Correção no Inventário na Loja. <br>
-      - Em Breve: Nova arma com dano em área!
-    `,
-  },
-  {
-    date: "2025-07-18",
-    title: "Novas interações com arvores e objetos destrutíveis!",
-    content:
-      "Adicionamos interações com árvores e objetos destrutíveis, permitindo que os jogadores cortem árvores para coletar madeira e destruam barris para obter itens. Além disso foram adicionados novos Efeitos sonoros para melhorar a experiência.",
-  },
-  {
-    date: "2025-07-15",
-    title: "Guia do Aventureiro Adicionado!",
-    content:
-      "Adicionamos o Guia do Aventureiro, livro de metas com missões que vão guiar o jogador na exploração do mundo de Bloomrise. O guia inclui dicas, objetivos e recompensas para ajudar na progressão do jogo.",
-  },
-  {
-    date: "2025-07-11",
-    title: "Dungeon adicionada!",
-    content:
-      "Adicionamos a dungeon no jogo, onde os jogadores podem enfrentar inimigos como zumbis e slimes. A dungeon inclui um layout variado com recompensas ao derrotar todos os monstros!",
-  },
-  {
-    date: "2025-07-13",
-    title: "Melhorias de interface",
-    content:
-      "Novo efeito de transição entre interiores, melhorias na interface da HUD, dentre outras melhorias visuais.",
-  },
-  {
-    date: "2025-07-10",
-    title: "Primeira versão dos interiores!",
-    content:
-      "Adicionamos a primeira versão dos interiores, permitindo que os NPCs interajam com as casas e lojas da vila. Agora é possível entrar e sair de ambientes internos, aumentando a imersão do jogo.",
-  },
-  {
-    date: "2025-07-07",
-    title: "Novas Lojas e Correções de Rotinas",
-    content:
-      "Foram adicionadas lojas interativas no ferreiro, no bar local e nas máquinas de refrigerante, permitindo compras diretas de armas, bebidas e itens rápidos. Além disso, corrigimos um bug que impedia certos NPCs de executarem suas rotinas completas ao entrarem e saírem de interiores.",
-  },
-  {
-    date: "2025-07-01",
-    title: "Criação de Interiores",
-    content:
-      "Foram adicionados interiores como casas, lojas e outros ambientes internos, expandindo a exploração e profundidade do mundo.",
-  },
-  {
-    date: "2025-06-25",
-    title: "Novo inimigo: Zumbi",
-    content:
-      "Zumbis surgem à noite nas áreas externas das dungeons, adicionando mais perigo e desafio.",
-  },
-  {
-    date: "2025-06-20",
-    title: "Melhoria da IA dos NPCs",
-    content:
-      "Os NPCs agora possuem rotinas diárias mais complexas, como trabalhar, descansar e interagir entre si.",
-  },
-  {
-    date: "2025-06-18",
-    title: "Sistema de Clima e Ciclo Dia-Noite",
-    content:
-      "Implementamos um sistema de clima dinâmico com ciclos de dia e noite, afetando a visibilidade e comportamento dos NPCs.",
-  },
-  {
-    date: "2025-06-10",
-    title: "Bug fixes e Melhorias de Performance",
-    content:
-      "Correção de bugs críticos e otimizações de performance para melhorar a fluidez do jogo.",
-  },
-  {
-    date: "2025-07-06",
-    title: "NPCs agora acessam interiores",
-    content:
-      "As rotinas dos NPCs foram aprimoradas para incluir interações com o ambiente interno da vila, como casas e lojas.",
-  },
-  {
-    date: "2025-06-15",
-    title: "Adição de Missões",
-    content:
-      "O sistema de quests foi introduzido com missões de coleta e combate, como derrotar inimigos específicos.",
-  },
-  {
-    date: "2025-06-08",
-    title: "Diálogos e Tutorial Básico",
-    content:
-      "Agora o jogo conta com diálogos interativos e um tutorial inicial para orientar novos jogadores.",
-  },
-  {
-    date: "2025-05-28",
-    title: "Nova loja do NPC J. Minelli",
-    content:
-      "O comerciante J. Minelli agora tem uma loja funcional onde o jogador pode comprar ou vender itens.",
-  },
-  {
-    date: "2025-05-20",
-    title: "NPCs adicionados (versão inicial)",
-    content:
-      "Primeiros NPCs foram inseridos com visual e nomes definidos, ainda sem rotinas complexas.",
-  },
-  {
-    date: "2025-05-08",
-    title: "Novo Inventário e Sistema de Itens",
-    content:
-      "O sistema de inventário foi reformulado, com suporte a itens utilizáveis, empilhamento e atalhos rápidos.",
-  },
-  {
-    date: "2025-04-30",
-    title: "Melhoria do Mapa e Novos Pontos de Interesse",
-    content:
-      "Adicionamos áreas como lagos, ruínas e trilhas para tornar a exploração mais variada e imersiva.",
-  },
-  {
-    date: "2025-04-15",
-    title: "Melhoria da Vegetação",
-    content:
-      "As árvores, gramas e arbustos receberam novos sprites e distribuição mais natural.",
-  },
-  {
-    date: "2025-04-05",
-    title: "Novos inimigos: Slimes e Orcs",
-    content:
-      "Os primeiros inimigos do jogo foram adicionados com IA básica e animações.",
-  },
-  {
-    date: "2025-03-25",
-    title: "Adição das Ferramentas",
-    content:
-      "Itens como picareta, machado e arco agora estão disponíveis para coleta e uso básico.",
-  },
-  {
-    date: "2025-03-18",
-    title: "Sistema de Combate Inicial",
-    content:
-      "Adicionamos o combate com toque para selecionar inimigos e atacar com timing.",
-  },
-  {
-    date: "2025-03-10",
-    title: "Primeira versão do Mapa",
-    content:
-      "Criamos o layout inicial da vila de Bloomrise e das áreas ao redor para testes de movimentação e ambientação.",
-  },
-];
+const DATA_FILES = {
+  tags: "data/tags.json",
+  gallery: "data/gallery.json",
+  characters: "data/characters.json",
+  devlogs: "data/devlogs.json",
+};
 
-// ==== Dados do Devlog ====
-const TAG_MAP = [
-  {
-    tag: "Combate",
-    icon: "⚔️",
-    keywords: [
-      "inimigo",
-      "inimigos",
-      "monstro",
-      "monstros",
-      "slime",
-      "orc",
-      "zumbi",
-      "morcego",
-      "cobra",
-      "ataque",
-      "batalha",
-      "combate",
-      "luta",
-    ],
-  },
-  {
-    tag: "Missão",
-    icon: "📜",
-    keywords: ["missão", "missões", "quest", "objetivo", "tarefa", "metas"],
-  },
-  {
-    tag: "Mundo",
-    icon: "🌍",
-    keywords: [
-      "interior",
-      "interiores",
-      "casa",
-      "casas",
-      "loja",
-      "lojas",
-      "mapa",
-      "mundo",
-      "vila",
-      "ambiente",
-      "exploração",
-    ],
-  },
-  {
-    tag: "História",
-    icon: "💬",
-    keywords: [
-      "diálogo",
-      "dialogo",
-      "fala",
-      "história",
-      "historia",
-      "narrativa",
-      "tutorial",
-      "cutscene",
-    ],
-  },
-  {
-    tag: "Personagem",
-    icon: "🧑",
-    keywords: [
-      "npc",
-      "personagem",
-      "ferreiro",
-      "mercador",
-      "vendedor",
-      "rayy",
-      "rotina",
-    ],
-  },
-  {
-    tag: "Sistema",
-    icon: "⚙️",
-    keywords: [
-      "sistema",
-      "inventário",
-      "inventario",
-      "hud",
-      "ia",
-      "rotina",
-      "interface",
-      "menu",
-      "save",
-      "salvar",
-    ],
-  },
-  {
-    tag: "Dungeon",
-    icon: "🏰",
-    keywords: [
-      "dungeon",
-      "masmorra",
-      "caverna",
-      "labirinto",
-      "andar",
-      "procedural",
-      "geração",
-      "gerado",
-    ],
-  },
-  {
-    tag: "Bug",
-    icon: "🐛",
-    keywords: ["bug", "erro", "problema", "falha", "correção", "corrigido", "fix"],
-  },
-  {
-    tag: "Performance",
-    icon: "⚡",
-    keywords: [
-      "performance",
-      "otimização",
-      "otimiz",
-      "fps",
-      "fluidez",
-      "carregamento",
-      "lag",
-    ],
-  },
-  {
-    tag: "Clima",
-    icon: "🌦️",
-    keywords: ["clima", "chuva", "tempestade", "vento", "dia-noite", "noite", "dia"],
-  },
-  {
-    tag: "Personalização",
-    icon: "🎨",
-    keywords: [
-      "decoração",
-      "decorar",
-      "personalização",
-      "móvel",
-      "cama",
-      "mesa",
-      "cadeira",
-    ],
-  },
-  {
-    tag: "Tradução",
-    icon: "🌐",
-    keywords: ["idioma", "tradução", "localização", "língua", "english", "português"],
-  },
-];
+function isArray(value) {
+  return Array.isArray(value);
+}
 
-// ==== Dados da Galeria (ATUALIZADO) ====
-const galleryData = [
-  {
-    src: "screenshot1.jpg",
-    alt: "A aventureira Rayy em combate com um slime verde na floresta de Bloomrise.",
-  },
-  {
-    src: "screenshot2.jpg",
-    alt: "Vista da vila de Bloomrise, mostrando o ferreiro e outros NPCs.",
-  },
-  {
-    src: "screenshot3.jpg",
-    alt: "Exploração de uma dungeon escura, com a personagem principal segurando uma tocha.",
-  },
-  {
-    src: "screenshot4.jpg",
-    alt: "Diálogo com o NPC J. Minelli dentro da loja de itens.",
-  },
-  // Adicione mais imagens conforme necessário
-];
+async function loadJsonArray(path, fallback = []) {
+  try {
+    const response = await fetch(path, { cache: "no-store" });
+    if (!response.ok) return fallback;
 
-// ==== Dados dos Personagens ====
-const charactersData = [
-  {
-    name: "Rayy",
-    image: "rayy.png",
-    description: "Protagonista que protege Bloomrise.",
-  },
-  {
-    name: "J. Minelli",
-    image: "minelli.png",
-    description: "Comerciante e marido da Rayy. Fornece a espada inicial.",
-  },
-  {
-    name: "Victor Bloom",
-    image: "victor.png",
-    description: "Prefeito reservado e bibliotecário inteligente.",
-  },
-  {
-    name: "Wade Woodson",
-    image: "wade.png",
-    description: "Lenhador amigável que fornece madeira e troca itens.",
-  },
-  {
-    name: "Darius Forge",
-    image: "darius.png",
-    description: "Ferreiro habilidoso, responsável por armas e itens.",
-  },
-  {
-    name: "Lupi Nuki",
-    image: "lupi.png",
-    description:
-      "Tanuki curioso e tagarela, fã de sementes estranhas. Melhor amigo de Rayy.",
-  },
-  {
-    name: "Selene Hawke",
-    image: "selene.png",
-    description: "Grande ouvinte de todos da vila, casada com Marcus.",
-  },
-  {
-    name: "Marcus Hawke",
-    image: "marcus.png",
-    description: "Dono do bar local, casado com Selene.",
-  },
-  {
-    name: "Lyla Quinn",
-    image: "lyla.png",
-    description: "Garota da cidade fascinada pela vida rural.",
-  },
-  {
-    name: "Jaden Carter",
-    image: "jaden.png",
-    description: "Cantor animado com estilo único.",
-  },
-  {
-    name: "Milo Plume",
-    image: "milo.png",
-    description: "Tucano calmo e observador, amigo do Lupi",
-  },
-  {
-    name: "Max Rook",
-    image: "max.png",
-    description: "Antigo guerreiro obcecado por glória.",
-  },
-];
+    const data = await response.json();
+    return isArray(data) ? data : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+async function loadDataFiles() {
+  const [tags, gallery, characters] = await Promise.all([
+    loadJsonArray(DATA_FILES.tags, []),
+    loadJsonArray(DATA_FILES.gallery, []),
+    loadJsonArray(DATA_FILES.characters, []),
+  ]);
+
+  TAG_MAP = tags;
+  galleryData = gallery;
+  charactersData = characters;
+}
 
 // ==== Trailer Section (opcional) ====
 if (!showTrailer) {
@@ -618,58 +92,108 @@ function getTagsAndIcons(title, content) {
 
 const devlogContainer = document.getElementById("devlog-container");
 
-devlogData.sort((a, b) => new Date(b.date) - new Date(a.date));
+function isValidDevlogEntry(entry) {
+  return (
+    entry &&
+    typeof entry.date === "string" &&
+    typeof entry.title === "string" &&
+    typeof entry.content === "string"
+  );
+}
 
-devlogData.forEach((entry) => {
-  const div = document.createElement("div");
-  div.className = "devlog-entry";
+function sortDevlogsByDateDesc(entries) {
+  return entries.sort((a, b) => new Date(b.date) - new Date(a.date));
+}
 
-  // Pega até 5 tags a partir do título + conteúdo
-  const tags = getTagsAndIcons(entry.title, entry.content);
+function renderDevlog(entries) {
+  devlogContainer.innerHTML = "";
 
-  // Converte a data para o formato brasileiro
-  const formattedDate = new Date(entry.date).toLocaleDateString("pt-BR", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
+  sortDevlogsByDateDesc(entries).forEach((entry) => {
+    const div = document.createElement("div");
+    div.className = "devlog-entry";
+
+    // Pega ate 5 tags a partir do titulo + conteudo
+    const tags = getTagsAndIcons(entry.title, entry.content);
+
+    // Converte a data para o formato brasileiro
+    const formattedDate = new Date(entry.date).toLocaleDateString("pt-BR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+
+    // Renderiza todas as tags encontradas
+    const tagsHTML = tags
+      .map(
+        ({ tag, icon }) =>
+          `<span class="devlog-tag tag-${tag.toLowerCase()}">${icon} ${tag}</span>`
+      )
+      .join(" ");
+
+    div.innerHTML = `
+      <div class="devlog-tags">
+        ${tagsHTML}
+      </div>
+      <h3>${entry.title}</h3>
+      <small>${formattedDate}</small>
+      <p>${entry.content}</p>
+    `;
+
+    devlogContainer.appendChild(div);
   });
+}
 
-  // Renderiza todas as tags encontradas
-  const tagsHTML = tags
-    .map(
-      ({ tag, icon }) =>
-        `<span class="devlog-tag tag-${tag.toLowerCase()}">${icon} ${tag}</span>`
-    )
-    .join(" ");
+async function loadExternalDevlogs() {
+  try {
+    const parsed = await loadJsonArray(DATA_FILES.devlogs, null);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter(isValidDevlogEntry);
+  } catch {
+    return [];
+  }
+}
 
-  div.innerHTML = `
-    <div class="devlog-tags">
-      ${tagsHTML}
-    </div>
-    <h3>${entry.title}</h3>
-    <small>${formattedDate}</small>
-    <p>${entry.content}</p>
-  `;
+async function initDevlog() {
+  const externalDevlogs = await loadExternalDevlogs();
+  const sourceData =
+    externalDevlogs.length > 0 ? externalDevlogs : fallbackDevlogData;
 
-  devlogContainer.appendChild(div);
-});
+  renderDevlog(sourceData);
+}
 
 const galleryContainer = document.querySelector(".gallery");
 
-// Criar as imagens e já adicionar evento para abrir modal (ATUALIZADO)
-galleryData.forEach((imgData, i) => {
-  const img = document.createElement("img");
-  img.src = `img/galeria/${imgData.src}`;
-  img.alt = imgData.alt; // Usa o alt descritivo
-  img.style.cursor = "pointer";
+function renderGallery() {
+  galleryContainer.innerHTML = "";
 
-  img.addEventListener("click", () => openModal(i));
+  // Criar as imagens e já adicionar evento para abrir modal (ATUALIZADO)
+  galleryData.forEach((imgData, i) => {
+    const figure = document.createElement("figure");
+    figure.className = "gallery-item";
 
-  galleryContainer.appendChild(img);
-});
+    const img = document.createElement("img");
+    img.src = `img/galeria/${imgData.src}`;
+    img.alt = imgData.alt; // Usa alt descritivo e unico
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.style.cursor = "pointer";
+
+    img.addEventListener("click", () => openModal(i));
+
+    const caption = document.createElement("figcaption");
+    caption.textContent = imgData.alt;
+
+    figure.appendChild(img);
+    figure.appendChild(caption);
+    galleryContainer.appendChild(figure);
+  });
+}
 
 const charactersContainer = document.querySelector(".characters");
-window.addEventListener("load", () => {
+
+function renderCharacters() {
+  charactersContainer.innerHTML = "";
+
   charactersData.forEach((char) => {
     const article = document.createElement("article");
     article.className = "character-card";
@@ -700,7 +224,18 @@ window.addEventListener("load", () => {
   document.head.appendChild(script);
 
   updateMaskClasses(charactersContainer); // se quiser aplicar fade também
-});
+}
+
+async function initDataDrivenSections() {
+  await loadDataFiles();
+  await initDevlog();
+  renderGallery();
+  renderCharacters();
+  updateMaskClasses(devlogContainer);
+  updateMaskClasses(charactersContainer);
+}
+
+initDataDrivenSections();
 
 // ==== Parallax suave ====
 const bg = document.querySelector(".parallax-bg");
@@ -832,6 +367,7 @@ const modalImg = document.getElementById("modal-img");
 const modalClose = document.getElementById("modal-close");
 const modalPrev = document.getElementById("modal-prev");
 const modalNext = document.getElementById("modal-next");
+const modalCaption = document.getElementById("modal-caption");
 
 // Variáveis para controle
 let currentIndex = -1;
@@ -845,9 +381,11 @@ function openModal(index) {
   if (currentImage) {
     modalImg.src = `img/galeria/${currentImage.src}`;
     modalImg.alt = currentImage.alt; // Usa o alt descritivo
+    if (modalCaption) modalCaption.textContent = currentImage.alt;
   } else {
     modalImg.src = "";
     modalImg.alt = "Imagem não encontrada";
+    if (modalCaption) modalCaption.textContent = "";
   }
 
   modal.classList.add("show");
