@@ -359,7 +359,7 @@ header>*:not(.blur-layer) {
     backdrop-filter: blur(10px);
     display: grid;
     gap: 8px;
-    z-index: 1000;
+    z-index: 10000;
 }
 
 .language-dropdown-option {
@@ -847,7 +847,8 @@ nav a:focus {
 #galeria,
 #recursos,
 #depoimentos,
-#sobre-dev {
+#sobre-dev,
+#copyright-artes {
     background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
         var(--surface);
@@ -865,7 +866,8 @@ nav a:focus {
 #galeria::before,
 #recursos::before,
 #depoimentos::before,
-#sobre-dev::before {
+#sobre-dev::before,
+#copyright-artes::before {
     content: "";
     position: absolute;
     left: 0;
@@ -1078,7 +1080,7 @@ footer {
     padding: 20px;
     color: #ffffff;
     background: linear-gradient(180deg, rgba(7, 12, 16, 0.2), rgba(7, 12, 16, 0.88));
-    z-index: 0;
+    z-index: 1001;
     overflow: visible;
 }
 
@@ -1408,4 +1410,42 @@ button:focus-visible,
         transition: none !important;
         scroll-behavior: auto !important;
     }
+}
+
+/* ==================== Seção de Direitos Autorais ==================== */
+.copyright-section {
+    border: 2px solid rgba(255, 193, 92, 0.3) !important;
+    background:
+        radial-gradient(circle at top right, rgba(255, 193, 92, 0.08), transparent 36%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
+        var(--surface) !important;
+}
+
+.copyright-content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.copyright-content p {
+    margin: 0;
+    line-height: 1.6;
+    color: rgba(245, 248, 238, 0.93);
+}
+
+.copyright-content p:first-child {
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 193, 92, 0.2);
+}
+
+.copyright-content a {
+    color: #79d6c8;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.copyright-content a:hover {
+    color: #a8f1e0;
+    text-decoration: underline;
 }

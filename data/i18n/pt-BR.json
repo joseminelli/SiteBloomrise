@@ -101,6 +101,13 @@
   "footer": {
     "text": "© 2026 Whiskline Studio. Todos os direitos reservados."
   },
+  "copyright": {
+    "title": "Direitos Autorais das Artes",
+    "main": "<strong>Todas as artes, gráficos, sprites e assets visuais de Tales of Bloomrise são protegidos por direitos autorais.</strong>",
+    "allowed": "✓ <strong>É permitido:</strong> Compartilhar, reproduzir e fazer vídeos do jogo para fins de demonstração, análise e entretenimento.",
+    "not_allowed": "✗ <strong>NÃO é permitido:</strong> Utilizar as artes, sprites ou assets em outros jogos, projetos comerciais ou educacionais sem permissão explícita do criador.",
+    "contact": "Para solicitar permissão de uso dos assets, entre em contato através do <a href='https://discord.gg/4QSxuG7RK7' target='_blank' rel='noopener noreferrer'>Discord</a>."
+  },
   "ui": {
     "backToTop": "↑ Topo"
   },
