@@ -1,8 +1,8 @@
 ﻿{
   "meta": {
     "title": "Tales of Bloomrise",
-    "description": "Explore dungeons e proteja sua vila em Tales of Bloomrise, um RPG brasileiro em pixel art. Faça o download na Google Play e junte-se à nossa comunidade no Discord!",
-    "ogDescription": "Explore dungeons e proteja sua vila em Tales of Bloomrise, um RPG brasileiro em pixel art. Jogue agora!"
+    "description": "Tales of Bloomrise é um RPG brasileiro em pixel art que mistura vida na vila e exploração de dungeons. Faça o download na Google Play e junte-se à nossa comunidade no Discord!",
+    "ogDescription": "Tales of Bloomrise é um RPG brasileiro em pixel art que mistura vida na vila e exploração de dungeons. Jogue agora!"
   },
   "skip": {
     "content": "Pular para o conteúdo principal"
@@ -14,10 +14,10 @@
     "modalSubtitle": "Selecione o idioma para continuar. Você poderá alterar depois no rodapé."
   },
   "hero": {
-    "subtitle": "Explore dungeons, proteja sua vila e viva uma aventura em pixel art",
+    "subtitle": "Entre flores e dungeons, sua jornada começa em Bloomrise.",
     "highlight1": "RPG brasileiro em pixel art",
-    "highlight2": "Dungeons, vila e progressão contínua",
-    "highlight3": "Atualizações frequentes com feedback da comunidade",
+    "highlight2": "Vida na vila, preparo e descidas às dungeons",
+    "highlight3": "Mundo em expansão com atualizações constantes",
     "cta": {
       "googlePlay": "Baixe na Google Play",
       "steam": "Veja na Steam!"
@@ -38,8 +38,8 @@
   },
   "about": {
     "title": "Sobre o Jogo",
-    "description1": "<strong>Tales of Bloomrise</strong> é um RPG brasileiro em pixel art que combina exploração de dungeons com a vida em uma vila cheia de personagens únicos. Você joga como <strong>Rayy</strong>, uma aventureira que protege Bloomrise e descobre segredos escondidos nas ruínas próximas.",
-    "description2": "Combinando combate, enigmas e relacionamentos com NPCs, o jogo promete uma experiência nostálgica e imersiva para quem curte jogos como Stardew Valley e Zelda clássico.",
+    "description1": "<strong>Tales of Bloomrise é um RPG brasileiro em pixel art</strong> que combina aventura e tranquilidade em uma vila viva. Você joga como <strong>Rayy</strong>, uma aventureira já integrada à comunidade, vivendo ao lado de seu marido, <strong>J. Minelli</strong>.",
+    "description2": "A cada dia, você pode cuidar da vila, criar vínculos com moradores e se preparar para descer às dungeons. Bloomrise nasceu há 30 anos pelas mãos de Victor Bloom, sobre um solo misterioso que esconde segredos perigosos.",
     "updateTitle": "Atualizações da Comunidade",
     "updateText": "As notas de atualização agora são publicadas no nosso Discord e na Comunidade Steam.<br><br><a href='https://discord.gg/4QSxuG7RK7' target='_blank' rel='noopener noreferrer'>Entrar no Discord</a> | <a href='https://steamcommunity.com/app/4383630' target='_blank' rel='noopener noreferrer'>Ver na Comunidade Steam</a>"
   },
@@ -50,28 +50,28 @@
   "features": {
     "title": "O que te espera em Bloomrise?",
     "item1": {
-      "title": "🌱 Cultivo e Crafting",
-      "text": "Plante ingredientes raros e crie seus próprios equipamentos."
+      "title": "🏡 Vida na Vila",
+      "text": "Plante, pesque, colete recursos e ajude os moradores em tarefas e histórias."
     },
     "item2": {
-      "title": "⚔️ Combate Dinâmico",
-      "text": "Enfrente monstros com diferentes armas e habilidades."
+      "title": "🍲 Preparo Estratégico",
+      "text": "Cozinhe comidas poderosas, melhore seus equipamentos e planeje cada expedição."
     },
     "item3": {
-      "title": "🏰 Dungeons Infinitas",
-      "text": "Explore masmorras geradas aleatoriamente. Nenhuma aventura é igual à outra!"
+      "title": "⚔️ Descida às Dungeons",
+      "text": "Enfrente salas fixas, áreas procedurais e desafios de hordas de monstros."
     },
     "item4": {
-      "title": "🧑‍🤝‍🧑 Vila Viva",
-      "text": "Conheça e interaja com mais de 10 NPCs únicos, cada um com sua história."
+      "title": "🌿 Cultivo e Cozinha",
+      "text": "Produza ingredientes e prepare refeições eficientes para suas aventuras."
     },
     "item5": {
-      "title": "🌍 Mundo Aberto",
-      "text": "Explore a vila, florestas, cavernas e a praia de Bloomrise."
+      "title": "⛏️ Mineração e Exploração",
+      "text": "Explore cavernas perigosas, encontre minérios raros e encare criaturas inesperadas."
     },
     "item6": {
-      "title": "📜 História e Segredos",
-      "text": "Descubra a história de Bloomrise e encontre segredos escondidos nas ruínas."
+      "title": "🎣 Pesca e Descobertas",
+      "text": "Relaxe à beira do lago ou na praia e descubra segredos escondidos na areia."
     }
   },
   "testimonials": {
@@ -79,7 +79,7 @@
   },
   "community": {
     "title": "Junte-se à Comunidade",
-    "text": "Entre no nosso Discord para ter acesso a novidades em primeira mão, dar sugestões e conversar com outros aventureiros!",
+    "text": "Entre no nosso Discord para acompanhar atualizações em primeira mão, compartilhar sugestões e conversar com outros aventureiros!",
     "item1": "💬 Converse com o dev e outros jogadores",
     "item2": "✨ Veja sneak peeks e novidades",
     "item3": "💡 Dê feedback e sugestões",
@@ -96,7 +96,7 @@
   "developer": {
     "title": "Uma Mensagem do Dev",
     "text1": "Olá! Eu sou <strong class='bigApple'>José Minelli</strong>, o criador de Tales of Bloomrise. Como desenvolvedor indie brasileiro, estou dedicado a trazer a melhor experiência possível para vocês.",
-    "text2": "O jogo é um projeto em constante evolução, e o feedback da comunidade é fundamental para o futuro dele. Obrigado por jogar e espero que goste da aventura. Nos vemos no Discord!"
+    "text2": "O jogo está em desenvolvimento ativo, com novos conteúdos e melhorias constantes. O feedback da comunidade é essencial para o futuro dele. Obrigado por jogar e espero que goste da aventura. Nos vemos no Discord!"
   },
   "footer": {
     "text": "© 2026 Whiskline Studio. Todos os direitos reservados."
