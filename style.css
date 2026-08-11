@@ -808,6 +808,7 @@ nav a:focus {
 .character-card img {
     image-rendering: pixelated;
     image-rendering: crisp-edges;
+    margin-bottom: -18px;
     width: 192px;
     height: auto;
 }

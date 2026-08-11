@@ -94,5 +94,13 @@
       "pt-BR": "Antigo guerreiro obcecado por glória.",
       "en-US": "A former warrior obsessed with glory."
     }
+  },
+  {
+    "name": "Mabel Moonbrook",
+    "image": "mabel.png",
+    "description": {
+      "pt-BR": "Mabel é uma bruxinha brilhante e dona de um conhecimento mágico absurdo;",
+      "en-US": "Mabel is a brilliant little witch with an absurd amount of magical knowledge."
+    }
   }
 ]
